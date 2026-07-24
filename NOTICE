@@ -1,0 +1,32 @@
+Parham Zilouchian Moghaddam — Academic Website
+Copyright 2026 Parham Zilouchian Moghaddam
+
+This product includes software developed by Parham Zilouchian Moghaddam
+(https://parhamzm.github.io/).
+
+Licensed under the Apache License, Version 2.0. See the LICENSE file.
+
+--------------------------------------------------------------------------
+Personal content
+--------------------------------------------------------------------------
+The Apache License above covers the source code of this website: the HTML
+structure, the CSS design system, and the JavaScript.
+
+It does not grant rights to the personal material distributed alongside it,
+which remains the property of the copyright holder:
+
+  - assets/profile.jpg, assets/profile.webp, assets/profile-480.webp
+  - assets/og-image.png
+  - assets/Parham_Zilouchian_Moghaddam_CV.pdf
+  - the biographical text, publication list, and other personal information
+
+Please replace this material with your own if you reuse the code.
+
+--------------------------------------------------------------------------
+Third-party assets
+--------------------------------------------------------------------------
+Typefaces are loaded at runtime from Google Fonts and are not redistributed
+in this repository:
+
+  - Newsreader   — SIL Open Font License 1.1
+  - Inter        — SIL Open Font License 1.1

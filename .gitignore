@@ -1,0 +1,101 @@
+# ─────────────────────────────────────────────────────────────
+#  parhamzm.github.io — ignored files
+#
+#  This is a dependency-free static site, so this list is mostly
+#  about keeping OS, editor and tooling clutter out of the repo.
+# ─────────────────────────────────────────────────────────────
+
+# ── macOS ────────────────────────────────────────────────────
+.DS_Store
+.DS_Store?
+._*
+.AppleDouble
+.LSOverride
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.fseventsd
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+Icon?
+
+# iCloud Drive placeholders (this folder syncs through iCloud)
+*.icloud
+
+# ── Windows ──────────────────────────────────────────────────
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# ── Linux ────────────────────────────────────────────────────
+*~
+.directory
+.Trash-*
+.nfs*
+
+# ── Editors & IDEs ───────────────────────────────────────────
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+.idea/
+*.swp
+*.swo
+*.sublime-workspace
+*.sublime-project
+.project
+.settings/
+*.code-workspace
+
+# ── Local preview / build tooling ────────────────────────────
+node_modules/
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+.cache/
+dist/
+build/
+.parcel-cache/
+.sass-cache/
+*.css.map
+*.js.map
+
+# Jekyll — unused (.nojekyll disables it) but harmless to guard
+_site/
+.jekyll-cache/
+.jekyll-metadata
+.bundle/
+vendor/
+
+# ── Python (local `python3 -m http.server` previews) ──────────
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# ── Logs, env & secrets ──────────────────────────────────────
+*.log
+npm-debug.log*
+.env
+.env.*
+!.env.example
+
+# ── Scratch files ────────────────────────────────────────────
+# Working copies used while editing; never meant to be published.
+_*.html
+_*.css
+_*.js
+*.bak
+*.orig
+*.tmp
+tmp/
+scratch/
+screenshots/
+
+# ── Source material kept locally, not published ──────────────
+# The published CV lives at assets/Parham_Zilouchian_Moghaddam_CV.pdf.
+# Dated working drafts stay out of the repository.
+Parham_ZM_CV_*.pdf
