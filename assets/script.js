@@ -140,18 +140,26 @@
 
     Array.prototype.forEach.call(targets, function (el) { el.classList.add('reveal'); });
 
-    var revealer = new IntersectionObserver(function (entries, obs) {
-      var shown = 0;
-      entries.forEach(function (entry) {
-        if (!entry.isIntersecting) return;
-        var el = entry.target;
-        el.style.transitionDelay = Math.min(shown++ * 55, 260) + 'ms';
-        el.classList.add('in');
-        obs.unobserve(el);
-      });
-    }, { rootMargin: '0px 0px -6% 0px', threshold: 0.05 });
+    // Once a target is marked .reveal it starts at opacity:0 and only the
+    // observer below ever makes it visible again — if setup throws (or a
+    // browser's IntersectionObserver misbehaves), fail open and show
+    // everything immediately rather than leave the page stuck invisible.
+    try {
+      var revealer = new IntersectionObserver(function (entries, obs) {
+        var shown = 0;
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+          var el = entry.target;
+          el.style.transitionDelay = Math.min(shown++ * 55, 260) + 'ms';
+          el.classList.add('in');
+          obs.unobserve(el);
+        });
+      }, { rootMargin: '0px 0px -6% 0px', threshold: 0.05 });
 
-    Array.prototype.forEach.call(targets, function (el) { revealer.observe(el); });
+      Array.prototype.forEach.call(targets, function (el) { revealer.observe(el); });
+    } catch (e) {
+      Array.prototype.forEach.call(targets, function (el) { el.classList.add('in'); });
+    }
   }
 
   /* ── toast ─────────────────────────────────────────────── */

@@ -59,6 +59,12 @@
 (function(){try{var t=localStorage.getItem('pzm-theme')||(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
 </script>
 
+<!-- The .reveal-on-scroll effect (assets/script.js) is opt-in: it only ever
+     applies to elements JS has explicitly marked. This rule is a defensive
+     backstop only, for markup changes or environments that add the class
+     without JS running to reveal it. -->
+<noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
+
 <!-- ══════════════════════ STRUCTURED DATA ══════════════════════ -->
 <script type="application/ld+json">
 {
@@ -1033,6 +1039,20 @@
         <h4>Creative Thinking Tools for Success and Leadership</h4>
         <p class="cert-issuer">Imperial College London</p>
         <p class="cert-actions"><a class="cert-link" href="https://coursera.org/share/3254a651717fff223bec2ed44a2d80bb" target="_blank" rel="noopener">Certificate<span aria-hidden="true">→</span></a></p>
+      </article>
+
+      <article class="cert-card">
+        <div class="cert-year">2026</div>
+        <h4>Google Prompting Essentials Specialization</h4>
+        <p class="cert-issuer">Google</p>
+        <p class="cert-actions"><a class="cert-link" href="https://coursera.org/verify/specialization/G6XU0613EA26" target="_blank" rel="noopener">Certificate<span aria-hidden="true">→</span></a></p>
+      </article>
+
+      <article class="cert-card">
+        <div class="cert-year">2025</div>
+        <h4>Machine Learning in Production</h4>
+        <p class="cert-issuer">deeplearning.ai</p>
+        <p class="cert-actions"><a class="cert-link" href="https://coursera.org/verify/OIVOU4B028TY" target="_blank" rel="noopener">Certificate<span aria-hidden="true">→</span></a></p>
       </article>
 
       <article class="cert-card">
