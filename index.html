@@ -242,10 +242,12 @@
       </p>
 
       <p class="hero-lede">
-        I work at the intersection of <strong>deep learning, generative models and computer vision</strong> —
-        building systems that are genuinely useful, and asking when they can be trusted.
-        My research spans culturally aligned image generation, video-quality restoration, efficient
-        deep learning for hardware that fits in your pocket, and the evaluation methods that keep all of it honest.
+        My work sits where <strong>generative AI, evaluation, and accountability</strong> meet, and the
+        question that ties it together is the one most people would rather skip: who answers for the
+        model when it gets something wrong. I have built systems that compress video without losing what
+        makes it worth watching, taught a model to render Arabic-Islamic visual culture the way an insider
+        would recognize it, and I now design the mechanisms that let autonomous agents explain and defend
+        their own decisions to the institutions that have to govern them.
       </p>
 
       <div class="hero-actions">
@@ -304,43 +306,62 @@
     <div class="about-grid">
       <div class="prose">
         <p class="prose-lead">
-          I am a machine learning researcher building practical AI at the intersection of
-          <strong>deep learning, generative models and computer vision</strong> — and I care as much about
-          whether a model can be trusted as about what it can produce.
+          I am a machine learning researcher who keeps circling back to the same question from different
+          angles: not just what a model can do, but whether anyone, including the model itself, can be held
+          to account for it.
         </p>
         <p>
           I completed my M.Sc. in Computer Engineering at the
           <a href="https://ut.ac.ir/en" target="_blank" rel="noopener">University of Tehran</a> as the
           top-ranked graduate of my cohort. My thesis, supervised by
           <a href="https://ece.ut.ac.ir/en/~modarressi" target="_blank" rel="noopener">Dr. Mehdi Modarressi</a> and
-          <a href="https://researchportal.hbku.edu.qa/en/persons/mohammad-amin-sadeghi" target="_blank" rel="noopener">Dr. Mohammad Amin Sadeghi</a>,
-          asked whether a generative model could recover what video compression throws away. The answer was
-          <strong>NU-Class Net</strong> — a network that restores low-bitrate video well enough to cut file sizes
-          roughly sevenfold without the viewer noticing, published in
+          <a href="https://qcai.qcri.org/people/dr-mohammad-amin-sadeghi" target="_blank" rel="noopener">Dr. Mohammad Amin Sadeghi</a>,
+          asked whether a generative model could recover what video compression throws away. The answer became
+          <strong>NU-Class Net</strong>, a restoration network that recovers low-bitrate video well enough to cut
+          file sizes roughly sevenfold without a viewer ever noticing the difference, published in
           <em>Engineering Applications of Artificial Intelligence</em>.
         </p>
         <p>
-          That question — <em>what can we take away, and what must we keep?</em> — still drives most of my work.
-          Most recently, as a researcher at the
+          That same trade-off, what to strip away and what has to survive, followed me to the
           <a href="https://www.hbku.edu.qa/en/qcri" target="_blank" rel="noopener">Qatar Computing Research Institute</a>,
-          I was a core contributor to <a href="https://www.fanar.qa/en" target="_blank" rel="noopener">Fanar</a>,
-          an Arabic-centric multimodal generative AI platform. I led culturally aligned image generation — teaching a
-          model to render Arabic-Islamic visual culture accurately rather than approximately — and built the evaluation
-          toolbox and benchmarking pipeline whose metrics were eventually adopted across the whole project.
+          where I spent a year as a core contributor to <a href="https://www.fanar.qa/en" target="_blank" rel="noopener">Fanar</a>,
+          an Arabic-centric multimodal generative AI platform. I led the effort to make its image generation
+          culturally legible: teaching a model to render Arabic-Islamic visual culture the way an insider would
+          recognize it, not the way an outsider would guess it. There was no existing yardstick for that, so I
+          designed fifteen LLM-as-a-judge metrics for cultural accuracy and generation quality, then checked every
+          one of them against Elo rankings from real human pairwise comparisons before letting the rest of the
+          team rely on them.
         </p>
         <p>
-          At the <a href="https://ece.ut.ac.ir/en" target="_blank" rel="noopener">School of ECE</a> in Tehran I work across two labs.
-          In the Computer Vision Lab I study reliability, robustness and fairness in generative and vision models. In the
-          <a href="https://utnoc.ir/new/" target="_blank" rel="noopener">Intelligent Architectures for Computing Systems Lab</a>
-          I make deep models small and fast enough to run where they are actually needed — wearable health devices,
-          edge hardware, and memory-bound systems — through pruning, quantization and hardware-aware design.
+          Since May 2026 I have been working with <a href="https://www.linkedin.com/in/mehrdad-tajbakhsh-500214102/" target="_blank" rel="noopener">Dr. Mehrdad Tajbakhsh</a> on a harder version of the same problem:
+          agents that act on their own, and the accountability trail they leave behind. The work has three
+          threads I actually care about: whether an agent can be made to explain and defend a decision after the
+          fact; what happens to that accountability when the AI infrastructure underneath sits outside the
+          institution trying to govern it, a question I have come to think of as Sovereign AI; and, more
+          concretely, building an open-weight LLM that can act as a co-expert in intangible-asset valuation,
+          grounded in real domain knowledge through retrieval, without leaking the private information it was
+          trained on.
+        </p>
+        <p>
+          Day to day, I split my time between two labs at the <a href="https://ece.ut.ac.ir/en" target="_blank" rel="noopener">School of ECE</a>
+          in Tehran. In the Computer Vision Lab, under
+          <a href="https://ece.ut.ac.ir/en/~105820023" target="_blank" rel="noopener">Dr. Mostafa Tavassolipour</a>,
+          I am building a system that proposes carpet patterns for industrial weavers, not by generating an image
+          and hoping it survives production, but by pairing a generative model with algorithmic constraint
+          enforcement so every suggestion is already loom-ready: pixel-exact, on a limited palette, nothing a
+          machine cannot actually weave. In the
+          <a href="https://utnoc.ir/new/" target="_blank" rel="noopener">Intelligent Architectures for Computing Systems Lab</a>,
+          under Dr. Mehdi Modarressi, I do the opposite kind of shrinking: pruning, quantizing, and redesigning
+          deep models so they fit on wearable health devices and other hardware that was never built with deep
+          learning in mind.
         </p>
         <p>
           I like problems that refuse to stay theoretical. Alongside research I have shipped computer vision into
-          production, founded a marketplace startup, taught ten university courses, and written and filmed explanations
-          of the ideas I find beautiful. I was admitted twice to the Ph.D. program in Computer Science at the
-          <strong>University of California, Irvine</strong> (Fall 2024 and Fall 2025) but could not enroll because of
-          U.S. visa processing delays — so I am actively looking for a Ph.D. position where this work can continue.
+          production, founded a marketplace startup, taught ten university courses, and written and filmed
+          explanations of the ideas I find beautiful. I was admitted twice to the Ph.D. program in Computer
+          Science at the <strong>University of California, Irvine</strong> (Fall 2024 and Fall 2025) but could
+          not enroll because of U.S. visa processing delays. So I am actively looking for a Ph.D. position where
+          this work, all of it, can continue.
         </p>
         <blockquote class="pull-quote">
           <p>“He who knows best, knows how little he knows.”</p>
@@ -351,20 +372,20 @@
         <div class="panel">
           <h3 class="mini-head">Research Interests</h3>
           <ul class="tag-list">
-            <li>Generative Models</li>
             <li>Trustworthy AI</li>
-            <li>Computer Vision</li>
-            <li>Multimodal Learning</li>
-            <li>Accountable Agents</li>
-            <li>LLMs</li>
+            <li>Accountable AI Agents</li>
+            <li>LLM Evaluation &amp; Reliability</li>
+            <li>Human&ndash;AI Interaction</li>
+            <li>AI for Democratic Institutions</li>
+            <li>Generative &amp; Multimodal Models</li>
           </ul>
         </div>
 
         <div class="panel">
           <h3 class="mini-head">Currently</h3>
           <ul class="bullets">
-            <li>Reliability &amp; fairness in generative and vision models</li>
-            <li>A hybrid generative–algorithmic framework for industrial carpet pattern design</li>
+            <li>Accountability mechanisms so autonomous agents can explain and defend their decisions</li>
+            <li>A hybrid generative–algorithmic assistant for industrial carpet pattern design</li>
             <li>Coordinating a reading group on LLM hardware &amp; efficiency</li>
           </ul>
         </div>
@@ -591,17 +612,15 @@
         <span class="tl-marker" aria-hidden="true"></span>
         <div class="tl-body">
           <div class="tl-top">
-            <h3>Research Assistant — Computer Vision Lab</h3>
-            <span class="tl-date">Apr 2024 – Present</span>
+            <h3>Researcher — Accountable AI Agents &amp; Institutional AI Governance</h3>
+            <span class="tl-date">May 2026 – Present</span>
           </div>
-          <p class="tl-sub">
-            <a href="https://ut.ac.ir/en" target="_blank" rel="noopener">University of Tehran</a>, Iran ·
-            Supervised by <a href="https://ece.ut.ac.ir/en/~105820023" target="_blank" rel="noopener">Dr. Mostafa Tavassolipour</a>
-            and <a href="https://ece.ut.ac.ir/en/~modarressi" target="_blank" rel="noopener">Dr. Mehdi Modarressi</a>
-          </p>
+          <p class="tl-sub">In collaboration with <a href="https://www.linkedin.com/in/mehrdad-tajbakhsh-500214102/" target="_blank" rel="noopener">Dr. Mehrdad Tajbakhsh</a></p>
           <ul class="bullets">
-            <li>Investigating reliability and trustworthiness in generative and vision models, with a focus on robustness and fairness.</li>
-            <li>Developing a hybrid generative–algorithmic framework for industrial carpet pattern design to assist carpet designers.</li>
+            <li>Developing accountability mechanisms for autonomous agents: recording, explaining, and defending their actions after the fact.</li>
+            <li>Studying Sovereign AI, how institutional control over AI infrastructure determines whether an agent can be governed at all.</li>
+            <li>Building an open-weight LLM co-expert for intangible-asset valuation, grounded in domain knowledge through retrieval-augmented generation.</li>
+            <li>Developing report-reliability and data-anonymization methods to protect information users disclose to the system.</li>
           </ul>
         </div>
       </li>
@@ -614,14 +633,55 @@
             <span class="tl-date">Mar 2025 – Mar 2026</span>
           </div>
           <p class="tl-sub">
-            QCRI, Doha, Qatar (Remote) ·
-            Supervised by <a href="https://researchportal.hbku.edu.qa/en/persons/mohammad-amin-sadeghi" target="_blank" rel="noopener">Dr. Mohammad Amin Sadeghi</a>
+            QCRI, Doha, Qatar (Hybrid) ·
+            Supervised by <a href="https://qcai.qcri.org/people/dr-mohammad-amin-sadeghi" target="_blank" rel="noopener">Dr. Mohammad Amin Sadeghi</a>
             and <a href="https://www.linkedin.com/in/anasaa/" target="_blank" rel="noopener">Dr. Anas A. Al-Nuaimi</a>
           </p>
           <ul class="bullets">
             <li>Core contributor to <a href="https://www.fanar.qa/en" target="_blank" rel="noopener">Fanar</a>, an Arabic-centric multimodal generative AI platform; led culturally aligned image generation.</li>
-            <li>Built an image-generation evaluation toolbox and benchmarking pipeline; metrics adopted across the project.</li>
-            <li>Authored a manuscript — <em>“Fanar Oryx: Culturally Aligned Image Generation for Arabic-Islamic Visual Culture”</em> — ready for submission.</li>
+            <li>Built the platform’s image-generation evaluation suite, covering FID, CLIP Score, Inception Score, PSNR, and SSIM.</li>
+            <li>Designed 15 custom LLM-as-a-judge metrics for cultural accuracy and generation quality that informed model selection across the project.</li>
+            <li>Validated the judge scores against Elo rankings from human pairwise comparison before the team relied on them.</li>
+            <li>Manuscript: <em>“Fanar Oryx: Culturally Aligned Image Generation for Arabic-Islamic Visual Culture”</em> <a class="ref" href="#pub-5">[5]</a>.</li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="tl-item">
+        <span class="tl-marker" aria-hidden="true"></span>
+        <div class="tl-body">
+          <div class="tl-top">
+            <h3>Research Assistant — Computer Vision Lab</h3>
+            <span class="tl-date">Apr 2024 – Present</span>
+          </div>
+          <p class="tl-sub">
+            <a href="https://ut.ac.ir/en" target="_blank" rel="noopener">University of Tehran</a>, Iran ·
+            Supervised by <a href="https://ece.ut.ac.ir/en/~105820023" target="_blank" rel="noopener">Dr. Mostafa Tavassolipour</a>
+          </p>
+          <ul class="bullets">
+            <li>Building a hybrid generative–algorithmic assistant that proposes carpet patterns and components for designers to refine.</li>
+            <li>Machine weaving demands pixel-exact patterns on a limited palette, a constraint standard generative models weren’t built to respect.</li>
+            <li>Pairing generative proposals with algorithmic constraint enforcement so every output is already usable on the loom.</li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="tl-item">
+        <span class="tl-marker" aria-hidden="true"></span>
+        <div class="tl-body">
+          <div class="tl-top">
+            <h3>Research Assistant — Computational Modeling and Machine Learning Lab</h3>
+            <span class="tl-date">Jan 2020 – Mar 2023</span>
+          </div>
+          <p class="tl-sub">
+            <a href="https://ut.ac.ir/en" target="_blank" rel="noopener">University of Tehran</a>, Iran ·
+            Supervised by <a href="https://ece.ut.ac.ir/en/~modarressi" target="_blank" rel="noopener">Dr. Mehdi Modarressi</a>
+            and <a href="https://qcai.qcri.org/people/dr-mohammad-amin-sadeghi" target="_blank" rel="noopener">Dr. Mohammad Amin Sadeghi</a>
+          </p>
+          <ul class="bullets">
+            <li>Developed <em>“NU-Class Net”</em>, a custom deep neural architecture for enhancing low-bitrate compressed video quality.</li>
+            <li>Achieved approximately 7× video size reduction while preserving perceptual quality through a learned restoration network.</li>
+            <li>Work published in <em>Engineering Applications of Artificial Intelligence</em> (Elsevier, Q1) <a class="ref" href="#pub-1">[1]</a>.</li>
           </ul>
         </div>
       </li>
@@ -638,30 +698,10 @@
             Supervised by <a href="https://ece.ut.ac.ir/en/~modarressi" target="_blank" rel="noopener">Dr. Mehdi Modarressi</a>
           </p>
           <ul class="bullets">
-            <li>Coordinate the lab’s reading group on LLM hardware and efficiency.</li>
+            <li>Coordinating the lab’s reading group on LLM hardware and efficiency.</li>
             <li>Optimizing GAN inference efficiency via pruning, quantization, and hardware-aware design.</li>
             <li>Designing energy-efficient LSTMs for wearable health devices, preserving accuracy under power and latency budgets <a class="ref" href="#pub-6">[6]</a>.</li>
-            <li>Contributed to a peer-reviewed publication on deep learning acceleration in 3D-stacked memories (IEEE CAL, 2023) <a class="ref" href="#pub-2">[2]</a>.</li>
-          </ul>
-        </div>
-      </li>
-
-      <li class="tl-item">
-        <span class="tl-marker" aria-hidden="true"></span>
-        <div class="tl-body">
-          <div class="tl-top">
-            <h3>Research Assistant — Computational Modeling and Machine Learning Lab</h3>
-            <span class="tl-date">Jan 2020 – Mar 2023</span>
-          </div>
-          <p class="tl-sub">
-            <a href="https://ut.ac.ir/en" target="_blank" rel="noopener">University of Tehran</a>, Iran ·
-            Supervised by <a href="https://ece.ut.ac.ir/en/~modarressi" target="_blank" rel="noopener">Dr. Mehdi Modarressi</a>
-            and <a href="https://researchportal.hbku.edu.qa/en/persons/mohammad-amin-sadeghi" target="_blank" rel="noopener">Dr. Mohammad Amin Sadeghi</a>
-          </p>
-          <ul class="bullets">
-            <li>Developed <em>“NU-Class Net”</em>, a custom deep neural architecture for enhancing low-bitrate compressed video quality.</li>
-            <li>Achieved approximately 7× video size reduction while preserving perceptual quality through a learned restoration network.</li>
-            <li>Work published in <em>Engineering Applications of Artificial Intelligence</em> (Elsevier, Q1) <a class="ref" href="#pub-1">[1]</a>.</li>
+            <li>Co-authored a study on deep learning acceleration in 3D-stacked memories (IEEE CAL, 2023) <a class="ref" href="#pub-2">[2]</a>.</li>
           </ul>
         </div>
       </li>
@@ -748,6 +788,10 @@
     <h3 class="group-head">Honors &amp; Awards</h3>
     <ul class="honors">
       <li>
+        <span class="honor-year">2026</span>
+        <p>Awarded the <a href="https://profile.ut.ac.ir/en/~96755111/grants" target="_blank" rel="noopener"><strong>HATEF Technology Development Grant</strong></a>, University of Tehran, selected from over 300 proposals.</p>
+      </li>
+      <li>
         <span class="honor-year">2024 – 2025</span>
         <p>Admitted <strong>twice</strong> to the Ph.D. program in Computer Science, <strong>University of California, Irvine</strong> (Fall 2024 &amp; Fall 2025); unable to enroll due to U.S. visa processing delays.</p>
       </li>
@@ -786,58 +830,101 @@
       <span class="section-num" aria-hidden="true">06</span>
       <h2 id="teaching-h">Teaching &amp; Service</h2>
     </header>
-    <p class="section-lede">Ten teaching appointments across the University of Tehran and the University of Kashan — six of them as Head Teaching Assistant.</p>
+    <p class="section-lede">Ten teaching appointments across the University of Tehran, the University of Kashan, and Khayatzade High School — six of them as Head Teaching Assistant.</p>
 
-    <div class="teach-table">
-      <div class="teach-row">
-        <div class="teach-course">Trustworthy AI <span class="role role-head">Head T.A.</span></div>
-        <div class="teach-with">with <a href="https://ece.ut.ac.ir/en/~105820023" target="_blank" rel="noopener">Dr. Tavassolipour</a> · <a href="https://ut.ac.ir/en" target="_blank" rel="noopener">University of Tehran</a></div>
-        <div class="teach-year">2023 – Now</div>
+    <div class="teach-block">
+      <h3 class="mini-head"><a href="https://ut.ac.ir/en" target="_blank" rel="noopener">University of Tehran</a></h3>
+      <div class="teach-table">
+        <div class="teach-row teach-row-featured">
+          <div class="teach-course">Trustworthy AI <span class="role role-head">Head T.A.</span></div>
+          <div class="teach-with">with <a href="https://ece.ut.ac.ir/en/~105820023" target="_blank" rel="noopener">Dr. Tavassolipour</a></div>
+          <div class="teach-year">2023 – Now</div>
+          <ul class="bullets teach-bullets">
+            <li>Teach the course’s AI Ethics section, and own the assessment pipeline end to end: writing, grading, and revising every homework set and exam.</li>
+            <li>Edit the lecture videos and have run the course’s YouTube channel since it was first established.</li>
+          </ul>
+          <p class="teach-actions">
+            <a class="cert-link" href="https://www.youtube.com/@Tavassolipour" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" aria-hidden="true" width="14" height="14"><rect x="2.5" y="5.5" width="19" height="13" rx="4"/><path d="m10.2 9.4 5 2.6-5 2.6z"/></svg>
+              Course YouTube channel<span aria-hidden="true">→</span>
+            </a>
+          </p>
+        </div>
+        <div class="teach-row">
+          <div class="teach-course">Generative Models <span class="role">T.A.</span></div>
+          <div class="teach-with">with <a href="https://qcai.qcri.org/people/dr-mohammad-amin-sadeghi" target="_blank" rel="noopener">Dr. Sadeghi</a> &amp; <a href="https://ece.ut.ac.ir/en/~105820023" target="_blank" rel="noopener">Dr. Tavassolipour</a></div>
+          <div class="teach-year">2022 – 2023</div>
+          <ul class="bullets teach-bullets">
+            <li>Ran lab sessions on GANs, VAEs, and early diffusion models, and graded assignments and final projects.</li>
+            <li>Edited the lecture videos and managed the course’s YouTube channel.</li>
+          </ul>
+          <p class="teach-actions">
+            <a class="cert-link" href="https://www.youtube.com/@Tavassolipour" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" aria-hidden="true" width="14" height="14"><rect x="2.5" y="5.5" width="19" height="13" rx="4"/><path d="m10.2 9.4 5 2.6-5 2.6z"/></svg>
+              Course YouTube channel<span aria-hidden="true">→</span>
+            </a>
+          </p>
+        </div>
+        <div class="teach-row">
+          <div class="teach-course">Data Analysis <span class="role">T.A.</span></div>
+          <div class="teach-with">with <a href="https://qcai.qcri.org/people/dr-mohammad-amin-sadeghi" target="_blank" rel="noopener">Dr. Sadeghi</a> &amp; <a href="https://ece.ut.ac.ir/en/~dehaqani" target="_blank" rel="noopener">Dr. Abolghasemi</a></div>
+          <div class="teach-year">2022</div>
+          <p class="teach-desc">Held weekly office hours and graded coursework on statistical inference and exploratory data analysis.</p>
+        </div>
+        <div class="teach-row">
+          <div class="teach-course">Data Analysis <span class="role">T.A.</span></div>
+          <div class="teach-with">with <a href="https://qcai.qcri.org/people/dr-mohammad-amin-sadeghi" target="_blank" rel="noopener">Dr. Sadeghi</a> &amp; <a href="https://ece.ut.ac.ir/en/~dehaqani" target="_blank" rel="noopener">Dr. Abolghasemi</a></div>
+          <div class="teach-year">2021</div>
+          <p class="teach-desc">Supported the course’s first offering with grading, office hours, and student project feedback.</p>
+        </div>
+        <div class="teach-row">
+          <div class="teach-course">Neural Networks &amp; Deep Learning <span class="role">T.A.</span></div>
+          <div class="teach-with">with <a href="https://profile.ut.ac.ir/en/~akalhor" target="_blank" rel="noopener">Dr. Ahmad Kalhor</a></div>
+          <div class="teach-year">2021</div>
+          <p class="teach-desc">Graded homework and exams on backpropagation, CNNs, and RNNs for the department’s core deep-learning course.</p>
+        </div>
       </div>
-      <div class="teach-row">
-        <div class="teach-course">Generative Models <span class="role">T.A.</span></div>
-        <div class="teach-with">with <a href="https://ece.ut.ac.ir/en/~asadeghi" target="_blank" rel="noopener">Dr. Sadeghi</a> · <a href="https://ut.ac.ir/en" target="_blank" rel="noopener">University of Tehran</a></div>
-        <div class="teach-year">2022 – 2023</div>
+    </div>
+
+    <div class="teach-block">
+      <h3 class="mini-head"><a href="https://kashanu.ac.ir/en" target="_blank" rel="noopener">University of Kashan</a></h3>
+      <div class="teach-table">
+        <div class="teach-row">
+          <div class="teach-course">Machine Learning <span class="role role-head">Head T.A.</span></div>
+          <div class="teach-with">with <a href="https://faculty.kashanu.ac.ir/salimi/en" target="_blank" rel="noopener">Dr. Javad Salimi Sartakhti</a></div>
+          <div class="teach-year">2022</div>
+          <p class="teach-desc">Designed problem sets and led review sessions on supervised learning, SVMs, and ensemble methods.</p>
+        </div>
+        <div class="teach-row">
+          <div class="teach-course">Discrete Mathematics <span class="role role-head">Head T.A.</span></div>
+          <div class="teach-with">with <a href="https://scholar.google.com/citations?user=7ahmLpgAAAAJ&amp;hl=en" target="_blank" rel="noopener">Dr. Ebrahimpour</a></div>
+          <div class="teach-year">2021</div>
+          <p class="teach-desc">Led weekly problem-solving sessions and wrote the exam bank for combinatorics, graph theory, and logic.</p>
+        </div>
+        <div class="teach-row">
+          <div class="teach-course">Artificial Intelligence <span class="role role-head">Head T.A.</span></div>
+          <div class="teach-with">with <a href="https://scholar.google.com/citations?user=7ahmLpgAAAAJ&amp;hl=en" target="_blank" rel="noopener">Dr. Ebrahimpour</a></div>
+          <div class="teach-year">2020</div>
+          <p class="teach-desc">Directed the grading team and designed assignments on search, constraint satisfaction, and classical planning.</p>
+        </div>
+        <div class="teach-row">
+          <div class="teach-course">MATLAB Laboratory <span class="role role-head">Head T.A.</span></div>
+          <div class="teach-with">with <a href="https://scholar.google.com/citations?user=7ahmLpgAAAAJ&amp;hl=en" target="_blank" rel="noopener">Dr. Ebrahimpour</a></div>
+          <div class="teach-year">2020</div>
+          <p class="teach-desc">Built the lab curriculum for numerical computing and signal-processing exercises in MATLAB.</p>
+        </div>
       </div>
-      <div class="teach-row">
-        <div class="teach-course">Data Analysis <span class="role">T.A.</span></div>
-        <div class="teach-with">with <a href="https://ece.ut.ac.ir/en/~asadeghi" target="_blank" rel="noopener">Dr. Sadeghi</a> &amp; <a href="https://ece.ut.ac.ir/en/~dehaqani" target="_blank" rel="noopener">Dr. Abolghasemi</a> · <a href="https://ut.ac.ir/en" target="_blank" rel="noopener">University of Tehran</a></div>
-        <div class="teach-year">2022</div>
-      </div>
-      <div class="teach-row">
-        <div class="teach-course">Data Analysis <span class="role">T.A.</span></div>
-        <div class="teach-with">with <a href="https://ece.ut.ac.ir/en/~asadeghi" target="_blank" rel="noopener">Dr. Sadeghi</a> · <a href="https://ut.ac.ir/en" target="_blank" rel="noopener">University of Tehran</a></div>
-        <div class="teach-year">2021</div>
-      </div>
-      <div class="teach-row">
-        <div class="teach-course">Neural Networks &amp; Deep Learning <span class="role">T.A.</span></div>
-        <div class="teach-with"><a href="https://ut.ac.ir/en" target="_blank" rel="noopener">University of Tehran</a></div>
-        <div class="teach-year">2021</div>
-      </div>
-      <div class="teach-row">
-        <div class="teach-course">Machine Learning <span class="role role-head">Head T.A.</span></div>
-        <div class="teach-with">with <a href="https://faculty.kashanu.ac.ir/salimi/en" target="_blank" rel="noopener">Dr. Salimi</a> · <a href="https://kashanu.ac.ir/en" target="_blank" rel="noopener">University of Kashan</a></div>
-        <div class="teach-year">2022</div>
-      </div>
-      <div class="teach-row">
-        <div class="teach-course">Discrete Mathematics <span class="role role-head">Head T.A.</span></div>
-        <div class="teach-with">with <a href="https://scholar.google.com/citations?user=7ahmLpgAAAAJ&amp;hl=en" target="_blank" rel="noopener">Dr. Ebrahimpour</a> · <a href="https://kashanu.ac.ir/en" target="_blank" rel="noopener">University of Kashan</a></div>
-        <div class="teach-year">2021</div>
-      </div>
-      <div class="teach-row">
-        <div class="teach-course">Artificial Intelligence <span class="role role-head">Head T.A.</span></div>
-        <div class="teach-with">with <a href="https://scholar.google.com/citations?user=7ahmLpgAAAAJ&amp;hl=en" target="_blank" rel="noopener">Dr. Ebrahimpour</a> · <a href="https://kashanu.ac.ir/en" target="_blank" rel="noopener">University of Kashan</a></div>
-        <div class="teach-year">2020</div>
-      </div>
-      <div class="teach-row">
-        <div class="teach-course">MATLAB Laboratory <span class="role role-head">Head T.A.</span></div>
-        <div class="teach-with">with <a href="https://scholar.google.com/citations?user=7ahmLpgAAAAJ&amp;hl=en" target="_blank" rel="noopener">Dr. Ebrahimpour</a> · <a href="https://kashanu.ac.ir/en" target="_blank" rel="noopener">University of Kashan</a></div>
-        <div class="teach-year">2020</div>
-      </div>
-      <div class="teach-row">
-        <div class="teach-course">Java Programming <span class="role">Teacher</span></div>
-        <div class="teach-with">Khayatzade High School</div>
-        <div class="teach-year">2017</div>
+    </div>
+
+    <div class="teach-block">
+      <h3 class="mini-head">Khayatzade High School</h3>
+      <div class="teach-table">
+        <div class="teach-row">
+          <div class="teach-course">Java Programming <span class="role">Teacher</span></div>
+          <div class="teach-with">&nbsp;</div>
+          <div class="teach-year">2017</div>
+          <p class="teach-desc">Introduced high-school students to programming fundamentals and object-oriented design in Java.</p>
+        </div>
       </div>
     </div>
 
@@ -995,6 +1082,12 @@
     <h3 class="group-head" id="skills">Technical Skills</h3>
     <div class="skills-grid">
       <div class="skill-card">
+        <h4>LLMs &amp; Agents</h4>
+        <ul class="tag-list small">
+          <li>Open-weight model deployment (Qwen3, FP8)</li><li>LLM APIs (OpenRouter)</li><li>RAG (LangChain)</li><li>LLM-as-a-judge design</li><li>Prompting strategies</li>
+        </ul>
+      </div>
+      <div class="skill-card">
         <h4>Programming</h4>
         <ul class="tag-list small">
           <li>Python</li><li>PyTorch</li><li>NumPy</li><li>Pandas</li><li>C / C++</li><li>MATLAB</li><li>SQL</li><li>Julia</li><li>R</li><li>VHDL</li><li>Verilog</li>
@@ -1003,13 +1096,19 @@
       <div class="skill-card">
         <h4>ML &amp; Systems</h4>
         <ul class="tag-list small">
-          <li>Model compression (pruning, quantization)</li><li>Distributed training on Slurm clusters</li><li>FFmpeg video pipelines</li><li>Linux server administration</li><li>Google Cloud Platform</li><li>Git</li>
+          <li>Model compression (pruning, quantization)</li><li>Distributed training on Slurm clusters</li><li>Generative-model metrics (FID, CLIP Score, IS, PSNR, SSIM)</li><li>FFmpeg video pipelines</li>
+        </ul>
+      </div>
+      <div class="skill-card">
+        <h4>MLOps &amp; Infrastructure</h4>
+        <ul class="tag-list small">
+          <li>MLOps / LLMOps</li><li>Docker</li><li>Google Cloud Platform</li><li>Linux server administration</li><li>Git</li>
         </ul>
       </div>
       <div class="skill-card">
         <h4>Web &amp; Deployment</h4>
         <ul class="tag-list small">
-          <li>Django</li><li>FastAPI</li><li>React</li><li>Node.js</li>
+          <li>Django</li><li>FastAPI</li><li>Next.js</li><li>React</li><li>Node.js</li>
         </ul>
       </div>
       <div class="skill-card">
@@ -1207,11 +1306,11 @@
       </article>
 
       <article class="ref-card">
-        <h3><a href="https://elmi.hbku.edu.qa/en/persons/mohammad-amin-sadeghi" target="_blank" rel="noopener">Dr. Mohammad Amin Sadeghi</a></h3>
+        <h3><a href="https://qcai.qcri.org/people/dr-mohammad-amin-sadeghi" target="_blank" rel="noopener">Dr. Mohammad Amin Sadeghi</a></h3>
         <p class="ref-title">Senior Scientist · Qatar Computing Research Institute</p>
         <p class="ref-links">
           <a href="mailto:msadeghi@hbku.edu.qa">msadeghi@hbku.edu.qa</a>
-          <a href="https://researchportal.hbku.edu.qa/en/persons/mohammad-amin-sadeghi" target="_blank" rel="noopener">Research portal</a>
+          <a href="https://qcai.qcri.org/people/dr-mohammad-amin-sadeghi" target="_blank" rel="noopener">Faculty page</a>
         </p>
       </article>
 

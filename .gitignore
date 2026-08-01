@@ -99,3 +99,6 @@ screenshots/
 # The published CV lives at assets/Parham_Zilouchian_Moghaddam_CV.pdf.
 # Dated working drafts stay out of the repository.
 Parham_ZM_CV_*.pdf
+
+# Local CV source/drafts used to update the site; never published as-is.
+MyCVs/

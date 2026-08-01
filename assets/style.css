@@ -180,8 +180,8 @@ a:hover { color: var(--accent-str); }
 html[data-theme="dark"] .grain { mix-blend-mode: soft-light; }
 
 /* animated underline for links inside running text */
-.prose a, .tl-sub a, .bullets a, .honors a, .teach-with a, .venue a,
-.news a, .hero-role a, .edu-top h3 a, .tl-top h3 a, .ref-card h3 a {
+.prose a, .tl-sub a, .bullets a, .honors a, .teach-with a, .teach-desc a, .venue a,
+.news a, .hero-role a, .edu-top h3 a, .tl-top h3 a, .ref-card h3 a, .mini-head a {
   color: var(--accent);
   background-image: linear-gradient(currentColor, currentColor);
   background-size: 0% 1.5px;
@@ -195,8 +195,8 @@ html[data-theme="dark"] .grain { mix-blend-mode: soft-light; }
   text-decoration-thickness: 1px;
 }
 .prose a:hover, .tl-sub a:hover, .bullets a:hover, .honors a:hover,
-.teach-with a:hover, .venue a:hover, .news a:hover, .hero-role a:hover,
-.edu-top h3 a:hover, .tl-top h3 a:hover, .ref-card h3 a:hover {
+.teach-with a:hover, .teach-desc a:hover, .venue a:hover, .news a:hover, .hero-role a:hover,
+.edu-top h3 a:hover, .tl-top h3 a:hover, .ref-card h3 a:hover, .mini-head a:hover {
   background-size: 100% 1.5px;
   text-decoration-color: transparent;
   color: var(--accent-str);
@@ -660,15 +660,26 @@ html[data-theme="dark"] .i-moon { display: block; }
 .honors strong { color: var(--ink); font-weight: 600; }
 
 /* ───────────────────────── 13. TEACHING ───────────────────────── */
+.teach-block + .teach-block { margin-top: 26px; }
+.teach-block .mini-head { display: flex; align-items: center; gap: 11px; margin: 0 0 11px 2px; }
+.teach-block .mini-head::after { content: ""; flex: 1; height: 1px; background: linear-gradient(90deg, var(--line), transparent); }
 .teach-table { border: 1px solid var(--line); border-radius: var(--r-md); overflow: hidden; background: var(--surface); box-shadow: var(--sh-1); }
 .teach-row {
   display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr) auto;
-  gap: 18px; align-items: center;
-  padding: 14px 20px; border-bottom: 1px solid var(--line-2);
+  gap: 3px 18px; align-items: start;
+  padding: 16px 20px; border-bottom: 1px solid var(--line-2);
   transition: background .18s var(--ease);
 }
 .teach-row:last-child { border-bottom: 0; }
 .teach-row:hover { background: var(--surface-2); }
+.teach-row-featured {
+  padding-left: 17px;
+  border-left: 3px solid var(--accent);
+  background: linear-gradient(150deg, var(--accent-wash) 0%, var(--surface) 60%);
+}
+.teach-row-featured:hover { background: linear-gradient(150deg, var(--accent-wash) 0%, var(--surface-2) 60%); }
+.teach-row .teach-bullets { grid-column: 1 / -1; margin: 5px 0 0; }
+.teach-actions { grid-column: 1 / -1; margin: 11px 0 0; }
 .teach-course { font-weight: 600; font-size: var(--t-sm); color: var(--ink); display: flex; align-items: center; gap: 9px; flex-wrap: wrap; }
 .role {
   font-size: .62rem; font-weight: 700; letter-spacing: .07em; text-transform: uppercase;
@@ -676,8 +687,9 @@ html[data-theme="dark"] .i-moon { display: block; }
   background: var(--surface-2); color: var(--faint); border: 1px solid var(--line);
 }
 .role-head { background: var(--accent-wash); color: var(--accent); border-color: var(--accent-edge); }
-.teach-with { font-size: var(--t-xs); color: var(--muted); }
-.teach-year { font-family: var(--mono); font-size: .715rem; color: var(--faint); white-space: nowrap; text-align: right; }
+.teach-with { font-size: var(--t-xs); color: var(--muted); padding-top: 1px; }
+.teach-year { font-family: var(--mono); font-size: .715rem; color: var(--faint); white-space: nowrap; text-align: right; padding-top: 2px; }
+.teach-desc { grid-column: 1 / -1; font-size: var(--t-xs); color: var(--muted); line-height: 1.62; margin-top: 3px; max-width: 74ch; }
 
 /* ───────────────────────── 14. PROJECTS ───────────────────────── */
 .proj-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr)); gap: 16px; }
@@ -730,6 +742,7 @@ html[data-theme="dark"] .i-moon { display: block; }
   border: 1px solid var(--accent-edge); background: var(--accent-wash);
   transition: background .2s var(--ease), color .2s var(--ease), border-color .2s var(--ease);
 }
+.cert-link svg { width: 14px; height: 14px; flex-shrink: 0; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
 .cert-link span { transition: transform .25s var(--ease-out); display: inline-block; }
 .cert-link:hover { background: var(--accent); color: var(--on-accent); border-color: transparent; }
 .cert-link:hover span { transform: translateX(2px); }
