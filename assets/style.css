@@ -565,11 +565,11 @@ html:not(.js) .js-theme { display: none !important; }
 /* faint eight-pointed-star lattice behind the statement, fading out */
 .motif {
   position: absolute; z-index: -1;
-  top: -56px; right: -40px;
-  width: min(480px, 78%); height: 340px;
+  top: -30px; right: -36px;
+  width: min(460px, 70%); height: 330px;
   pointer-events: none;
-  -webkit-mask-image: radial-gradient(closest-side at 62% 44%, #000 0%, rgba(0, 0, 0, .55) 45%, transparent 100%);
-          mask-image: radial-gradient(closest-side at 62% 44%, #000 0%, rgba(0, 0, 0, .55) 45%, transparent 100%);
+  -webkit-mask-image: radial-gradient(closest-side at 64% 46%, #000 0%, rgba(0, 0, 0, .5) 50%, transparent 100%);
+          mask-image: radial-gradient(closest-side at 64% 46%, #000 0%, rgba(0, 0, 0, .5) 50%, transparent 100%);
 }
 
 .intro-statement {
@@ -588,7 +588,7 @@ html:not(.js) .js-theme { display: none !important; }
 .interests li {
   padding: 5px 12px;
   border: 1px solid var(--accent-edge); border-radius: 999px;
-  background: color-mix(in srgb, var(--accent-wash) 85%, transparent); color: var(--accent);
+  background: var(--accent-wash); color: var(--accent);
   font-size: var(--fs-xs); font-weight: 500; line-height: 1.4;
 }
 
@@ -613,21 +613,22 @@ html:not(.js) .js-theme { display: none !important; }
 
 .themes { list-style: none; margin: 0; padding: 0; }
 .theme {
-  display: grid; grid-template-columns: 46px minmax(0, 1fr); gap: 18px;
+  display: grid; grid-template-columns: 48px minmax(0, 1fr); gap: 18px;
   padding: 18px 0;
   border-top: 1px solid var(--line-soft);
 }
 .theme:first-child { border-top: 0; padding-top: 2px; }
 .theme-icon {
   display: grid; place-items: center;
-  width: 46px; height: 46px;
+  width: 48px; height: 48px;
   border: 1px solid var(--accent-edge); border-radius: 12px;
   background: var(--accent-wash); color: var(--accent);
 }
-.theme-icon .i { width: 22px; height: 22px; stroke-width: 1.5; }
+.theme-icon .i { width: 26px; height: 26px; stroke-width: 1.4; }
 .theme-title { font-size: 1.1875rem; line-height: 1.35; letter-spacing: -0.006em; }
 .theme p { margin-top: 5px; font-size: var(--fs-md); line-height: 1.6; max-width: 62ch; }
 .theme .theme-refs { margin-top: 6px; font-size: var(--fs-xs); color: var(--muted); }
+.theme-refs .ref { font-size: inherit; }
 
 /* ───────────────────────── 9. NEWS ───────────────────────── */
 .news { list-style: none; margin: 0; padding: 0; }
@@ -934,7 +935,7 @@ html:not(.js) .js-bib, html:not(.js) .copy-btn, html:not(.js) .js-copy-email { d
   .glance div { display: grid; grid-template-columns: 7rem minmax(0, 1fr); column-gap: 16px; align-items: baseline; padding: 11px 0; }
   .glance dt { padding-top: .1em; }
   .glance dd { margin: 0; }
-  .motif { top: -40px; right: -24px; width: 92%; height: 280px; }
+  .motif { top: -24px; right: -28px; width: 78%; height: 260px; opacity: .8; }
 }
 
 @media (max-width: 640px) {
@@ -952,9 +953,12 @@ html:not(.js) .js-bib, html:not(.js) .copy-btn, html:not(.js) .js-copy-email { d
   .pub-tile { flex-direction: row; gap: 7px; min-height: 0; padding: 3px 10px; justify-self: start; }
   .pub-main { grid-column: 1 / -1; }
 
+  .interests { gap: 6px; }
+  .interests li { padding: 3px 10px; font-size: var(--fs-2xs); }
+
   .theme { grid-template-columns: 40px minmax(0, 1fr); gap: 14px; }
   .theme-icon { width: 40px; height: 40px; border-radius: 11px; }
-  .theme-icon .i { width: 20px; height: 20px; }
+  .theme-icon .i { width: 23px; height: 23px; }
 }
 
 @media (max-width: 400px) {

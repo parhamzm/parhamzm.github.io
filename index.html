@@ -194,7 +194,7 @@
   <defs>
     <!-- eight-pointed star (khatam) lattice, after Persian tilework and carpet borders -->
     <pattern id="khatam" width="56" height="56" patternUnits="userSpaceOnUse">
-      <g style="fill: none; stroke: var(--gold); stroke-opacity: .5; stroke-width: 1">
+      <g style="fill: none; stroke: var(--gold); stroke-opacity: .38; stroke-width: 1">
         <rect x="8.2" y="8.2" width="39.6" height="39.6"/>
         <rect x="8.2" y="8.2" width="39.6" height="39.6" transform="rotate(45 28 28)"/>
       </g>
@@ -216,12 +216,12 @@
   <symbol id="i-arrow-up" viewBox="0 0 24 24"><path d="M12 19V5m0 0-6 6m6-6 6 6"/></symbol>
   <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m6.5 9.5 5.5 5.5 5.5-5.5"/></symbol>
   <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3.3 5 5.9v5.6c0 4.3 2.9 7.8 7 9.2 4.1-1.4 7-4.9 7-9.2V5.9z"/><path d="m8.9 12.1 2.2 2.2 4.2-4.3"/></symbol>
-  <symbol id="i-star" viewBox="0 0 24 24"><rect x="6.6" y="6.6" width="10.8" height="10.8"/><rect x="6.6" y="6.6" width="10.8" height="10.8" transform="rotate(45 12 12)"/><circle cx="12" cy="12" r="1.6"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24"><path d="M21.5 12l-5.43 1.68 2.65 5.04-5.04-2.65L12 21.5l-1.68-5.43-5.04 2.65 2.65-5.04L2.5 12l5.43-1.68-2.65-5.04 5.04 2.65L12 2.5l1.68 5.43 5.04-2.65-2.65 5.04z"/></symbol>
   <symbol id="i-chip" viewBox="0 0 24 24"><rect x="6.8" y="6.8" width="10.4" height="10.4" rx="2"/><path d="M10 3.6v3.2M14 3.6v3.2M10 17.2v3.2M14 17.2v3.2M3.6 10h3.2M3.6 14h3.2M17.2 10h3.2M17.2 14h3.2"/><path d="M10 10h4v4h-4z"/></symbol>
 </svg>
 
 <!-- ══════════════════════ COMPACT BAR (narrow screens) ══════════════════════ -->
-<div class="topbar" id="topbar">
+<header class="topbar" id="topbar">
   <a class="topbar-brand" href="#top" aria-label="Parham Zilouchian Moghaddam, back to top">
     <svg class="brand-mark" aria-hidden="true"><use href="#i-mark"/></svg>
     <span class="brand-text" aria-hidden="true"><span class="brand-full">Parham Zilouchian Moghaddam</span><span class="brand-short">P. Z. Moghaddam</span></span>
@@ -250,12 +250,12 @@
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
-</div>
+</header>
 
 <div class="layout">
 
   <!-- ══════════════════════ PROFILE (sticky column on wide screens) ══════════════════════ -->
-  <header class="profile">
+  <section class="profile" aria-label="Profile">
     <div class="profile-card">
       <div class="portrait">
         <picture>
@@ -315,7 +315,7 @@
       <span class="i-to-dark" aria-hidden="true">Dark theme</span>
       <span class="i-to-light" aria-hidden="true">Light theme</span>
     </button>
-  </header>
+  </section>
 
   <div class="content">
   <main id="main" tabindex="-1">
@@ -1152,7 +1152,7 @@
         <dl class="contact-list">
           <div>
             <dt>Address</dt>
-            <dd><address>School of Electrical and Computer Engineering, University College of Engineering<br>University of Tehran, Tehran, Iran</address></dd>
+            <dd><address>School of Electrical and Computer Engineering<br>University College of Engineering, University of Tehran<br>Tehran, Iran</address></dd>
           </div>
           <div>
             <dt>CV</dt>
