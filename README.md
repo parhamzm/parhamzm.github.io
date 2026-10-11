@@ -1,10 +1,10 @@
 # parhamzm.github.io
 
-[![License: Apache 2.0](https://img.shields.io/badge/License-Apache_2.0-5738d4.svg)](LICENSE)
+[![License: Apache 2.0](https://img.shields.io/badge/License-Apache_2.0-1f4e8c.svg)](LICENSE)
 [![Deployed on GitHub Pages](https://img.shields.io/badge/Deployed-GitHub_Pages-24292e.svg)](https://parhamzm.github.io/)
 [![No dependencies](https://img.shields.io/badge/dependencies-none-brightgreen.svg)](#)
 
-Personal academic website of **Parham Zilouchian Moghaddam** — AI researcher, University of Tehran.
+Personal academic website of **Parham Zilouchian Moghaddam**, AI researcher, University of Tehran.
 
 Live at **https://parhamzm.github.io/**
 
@@ -17,7 +17,7 @@ Plain HTML, CSS and vanilla JavaScript, so GitHub Pages serves it as-is.
 
 ```
 index.html                the whole site (all content lives here)
-404.html                  not-found page
+404.html                  not-found page (uses absolute /assets/ paths on purpose)
 robots.txt                search-engine directives
 sitemap.xml               sitemap for search engines
 .nojekyll                 tells GitHub Pages to serve files verbatim
@@ -25,50 +25,81 @@ sitemap.xml               sitemap for search engines
 LICENSE                   Apache License 2.0
 NOTICE                    attribution + what the licence does not cover
 assets/
-  style.css               design system — light + dark themes
-  script.js               theme toggle, nav, scroll spy, reveals, BibTeX copy
-  profile.jpg             your photo (also .webp versions for speed)
-  profile.webp
-  profile-480.webp
+  style.css               design system: light + dark themes
+  script.js               theme toggle, section menu, scroll spy, BibTeX
+  fonts/                  self-hosted Inter + Newsreader (Latin) and their OFL licences
+  profile-portrait.jpg    head-and-shoulders crop used on the page (+ .webp)
+  profile.jpg             original photo (+ .webp versions); used for search results
   og-image.png            1200×630 social preview card
   favicon.svg             browser tab icon
   apple-touch-icon.png    iOS home-screen icon
-  Parham_Zilouchian_Moghaddam_CV.pdf
+  Parham_Zilouchian_Moghaddam_CV_Oct2026.pdf   current CV (linked from the page)
+  Parham_Zilouchian_Moghaddam_CV.pdf           previous CV, kept for old links
 ```
 
-> The dated CV draft in the project folder (`Parham_ZM_CV_*.pdf`) is deliberately
-> **not** tracked — see `.gitignore`. The published copy is the one in `assets/`.
+> Working CV drafts in `MyCVs/` are deliberately **not** tracked (see `.gitignore`).
+> Only the copies in `assets/` are published.
 
 ---
 
-## Publishing to GitHub Pages
+## Updating the CV
 
-The repository **must** be named `parhamzm.github.io` for the site to appear at that address.
+CV versions are kept side by side, so old links never break and the history stays visible.
 
-### First time
+1. Add the new PDF as `assets/Parham_Zilouchian_Moghaddam_CV_<Mon><Year>.pdf`
+   (for example `..._CV_Jan2027.pdf`). Do not delete or overwrite older versions.
+2. Replace the old filename everywhere it is linked. All five places use the same string,
+   so a single search-and-replace for `_CV_Oct2026.pdf` finds them:
+   the profile button and the two contact links in `index.html`, the button in `404.html`,
+   and the entry in `sitemap.xml`.
+3. If the CV changed any facts (titles, dates, publications), update the matching section of
+   `index.html` so the site and the CV never disagree.
 
-The repository is already initialised and committed locally, so only two commands remain:
+---
 
-```bash
-cd "path/to/this/folder"
+## Editing the content
 
-git remote add origin https://github.com/parhamzm/parhamzm.github.io.git
-git push -u origin main --force
-```
+Everything is in `index.html`, in clearly labelled sections, in this order:
 
-`--force` is needed only the first time, because the repository already contains the old site.
-**It replaces that content with this one** — the old site's files will no longer be on `main`.
-If you want to keep them, tag the old version first:
+| Section | Search for |
+|---|---|
+| Profile column (photo, name, CV, links) | `class="profile"` |
+| About + research interests | `id="about"` |
+| News | `id="news"` |
+| Publications | `id="publications"` |
+| Research experience | `id="research"` |
+| Education + honors | `id="education"` |
+| Teaching + service | `id="teaching"` |
+| Industry experience + skills | `id="experience"` |
+| Projects | `id="projects"` |
+| Schools, workshops & certificates | `id="certificates"` |
+| Contact + references | `id="contact"` |
 
-```bash
-git fetch origin
-git tag old-site origin/main && git push origin old-site
-```
+**Add a news item:** copy an `<li>` inside `<ol class="news">` and put it at the top.
+Keep the `datetime` attribute in ISO form (`2026-10`); search engines read it.
 
-Then in GitHub: **Settings → Pages → Build and deployment → Source: “Deploy from a branch”**,
-branch `main`, folder `/ (root)`. Save. The site is live in about a minute.
+**Add a publication:** copy a `<li class="pub" id="pub-N">` block and update the number,
+badge, title, authors, venue and links. Then:
+- update its `<pre>` BibTeX block (the **BibTeX** button shows and copies it);
+- add a matching `ScholarlyArticle` to the JSON-LD block in `<head>`;
+- if numbering shifts, update the `[N]` cross-references (`class="ref"`) in About, News and Research.
 
-### Every update afterwards
+Use the **official** title and author names from the publisher (Crossref/DOI page) in BibTeX.
+
+**Add a certificate:** copy a `<li class="cert">` row into the right list, newest first.
+
+**Change the photo:** replace `assets/profile-portrait.jpg` / `.webp` (square, ~400×400,
+head and shoulders) and `assets/profile.jpg`. If you change the photo, regenerate the
+social card as well.
+
+**Regenerate the social preview card** (`og-image.png`, 1200×630) after a big change:
+it is just a screenshot of a small HTML card in the site's fonts and colours.
+
+---
+
+## Publishing
+
+The repository must be named `parhamzm.github.io`. GitHub Pages deploys `main`, folder `/ (root)`.
 
 ```bash
 git add .
@@ -76,76 +107,25 @@ git commit -m "Update publications"
 git push
 ```
 
+GitHub Pages caches files for about 10 minutes. `style.css` and `script.js` are linked with a
+`?v=` date suffix; bump it whenever you change them so visitors never mix old and new files.
+
 ---
 
 ## Getting found on Google
 
-The page already ships with everything a search engine needs: a name-first `<title>`, a
-meta description, canonical URL, `robots` directives, a sitemap, Open Graph and Twitter card
-tags, and **schema.org structured data** describing you as a `Person` (with your ORCID, Scholar,
-GitHub and LinkedIn as `sameAs` identity signals) plus each publication as a `ScholarlyArticle`.
-That is what lets Google connect this page to your name and, in time, show a knowledge panel.
+The page ships with a name-first `<title>`, a meta description, a canonical URL, a sitemap,
+Open Graph and Twitter card tags, and **schema.org structured data**: a `ProfilePage` whose
+`mainEntity` is you as a `Person` (with ORCID, Scholar, GitHub and LinkedIn as `sameAs`
+identity signals) plus each publication as a `ScholarlyArticle`.
 
-Three things only you can do, and they matter more than anything else:
+What only you can do, and matters most:
 
-1. **Submit the site to Google Search Console** — <https://search.google.com/search-console>.
-   Add `https://parhamzm.github.io/` as a URL-prefix property. Verify with the HTML-tag method:
-   Google gives you a `<meta name="google-site-verification" ...>` tag; paste it into
-   `index.html` just below the `<title>` line, push, then click Verify. Afterwards use
-   **Sitemaps** to submit `sitemap.xml`, and **URL Inspection → Request indexing** on the
-   homepage. Indexing usually takes a few days.
-
-2. **Link to the site from profiles Google already trusts.** Add
-   `https://parhamzm.github.io/` to your Google Scholar profile (Homepage field), ORCID,
-   LinkedIn, GitHub bio, and your Medium and YouTube about pages. Inbound links from those
-   domains are the single strongest signal that this page is *the* page for your name.
-
-3. **Keep it fresh.** Add an entry to the *Recent News* section whenever something happens.
-   Google favours pages that change; an academic homepage that has not moved in two years
-   slowly drifts down the results.
-
-Optional: also add `https://parhamzm.github.io/` to Bing Webmaster Tools — it feeds DuckDuckGo too.
-
----
-
-## Editing the content
-
-Everything is in `index.html`, in clearly labelled sections:
-
-| Section | Search for |
-|---|---|
-| Hero / intro | `<!-- ═══ HERO` |
-| About + interests | `id="about"` |
-| Recent news | `id="news"` |
-| Research experience | `id="research"` |
-| Publications | `id="publications"` |
-| Industry experience + skills | `id="experience"` |
-| Education + honors | `id="education"` |
-| Teaching | `id="teaching"` |
-| Projects | `id="projects"` |
-| Certificates, workshops, activities | `id="certificates"` |
-| References & contact | `id="contact"` |
-
-**Add a news item:** copy an `<li>` inside `<ol class="news">` and put it at the top.
-Keep the `datetime` attribute in ISO form (`2026-07`) — search engines read it.
-
-**Add a publication:** copy an existing `<li class="pub" id="pub-N">` block, change the number,
-title, authors, venue and links. If it has a DOI, also update the `<pre class="bibtex">` block
-inside it so the **BibTeX** button copies the right citation, and add a matching
-`ScholarlyArticle` entry to the JSON-LD block in `<head>`.
-
-**Add a certificate:** copy a `<article class="cert-card">` block into the relevant grid.
-
-**Update the CV:** replace `assets/Parham_Zilouchian_Moghaddam_CV.pdf`, keeping the same
-filename — every download button then points at the new file automatically.
-
-**Change your photo:** replace `assets/profile.jpg` (square, ~600×600). Delete
-`profile.webp` and `profile-480.webp` if you do not have WebP versions of the new photo —
-the site falls back to the JPG. If the photo is missing entirely, a clean “PZ” monogram
-appears instead; nothing breaks.
-
-**Regenerate the social preview card** after a big change: the `og-image.png` is just a
-1200×630 screenshot. Any design tool works, or ask Claude to rebuild it.
+1. **Google Search Console** (<https://search.google.com/search-console>): add the site, submit
+   `sitemap.xml`, and use **URL Inspection → Request indexing** after big updates.
+2. **Link to the site from profiles Google already trusts:** Google Scholar (Homepage field),
+   ORCID, LinkedIn, GitHub bio, Medium and YouTube.
+3. **Keep News current.** A homepage that changes is ranked, and read, as alive.
 
 ---
 
@@ -161,55 +141,44 @@ Then open <http://localhost:8000>.
 
 ## Design notes
 
-- **Two themes, both deliberate.** Light is warm paper with hairline rules; dark is a deep
-  violet-black with layered surfaces and a top-edge highlight on cards. The site follows the
-  visitor's system setting, and the header toggle overrides it — remembered between visits,
-  applied before first paint so there is never a flash of the wrong theme.
-- **Type:** Newsreader (serif) for headings and lead copy, Inter for everything else, on a
-  fluid scale that adapts continuously between phone and desktop.
-- **Accessibility:** every text/background pair meets WCAG AA contrast in both themes;
-  full keyboard navigation with visible focus rings; animations disabled automatically for
-  visitors who prefer reduced motion.
-- **Print:** `Cmd/Ctrl + P` produces a clean black-on-white document — useful as a handout.
-- The only external requests are Google Fonts. To go fully self-contained, delete the two
-  `fonts.googleapis.com` / `fonts.gstatic.com` `<link>` tags — the site falls back to
-  Georgia + system sans and still looks good.
-
----
+- **Layout.** On wide screens a sticky profile column (photo, name, affiliation, CV, profiles
+  and a section index) sits beside a single reading column, so a reader always knows who this
+  is and where they are. Below 1024 px it becomes a compact top bar with a section menu.
+- **CV-style rhythm.** Research, education, teaching, honors, skills and training share one
+  left-hand date column, so the page scans like a well-set CV.
+- **Type.** Newsreader (serif) for names, headings, titles and journal names; Inter for
+  everything else. Running text is 16–17 px; nothing that carries content is set below 13 px.
+- **Colour.** Warm paper, near-black ink and a single ink-blue accent. Every text/background pair
+  passes WCAG AA in both themes (body text 12.7:1 light, 11.9:1 dark; links ≥ 8:1).
+- **Accessibility.** Skip link, landmark structure, visible focus rings, `aria-current` on the
+  section index, a menu that cannot be tabbed into while closed, full keyboard support, and no
+  motion beyond small colour transitions (disabled under reduced-motion). axe-core reports no
+  violations.
+- **Performance and privacy.** Fonts are self-hosted (about 130 KB, Latin subsets) with
+  metric-matched fallbacks, so there are no third-party requests and text barely shifts while
+  fonts load. The page works fully without JavaScript; JS only adds conveniences.
+- **Themes.** Follows the system setting; the toggle overrides it and is remembered. The theme
+  is applied before first paint, so there is never a flash of the wrong one.
+- **Print.** `Cmd/Ctrl + P` produces a clean black-on-white document.
 
 ## Mobile
 
-The layout was tested at **320, 360, 390, 414, 430 and 768 px** with real narrow viewports,
-and checked for horizontal overflow at every one — there is none, so the page never
-scrolls sideways or zooms out on a phone.
-
-What that involved:
-
-- **Nothing forces a minimum width.** Every card grid uses `minmax(min(Npx, 100%), 1fr)`,
-  so tracks shrink instead of overflowing on small screens.
-- **The header adapts.** Below 430 px the full name is replaced by “P. Z. Moghaddam”, and the
-  section links collapse into a menu that closes on tap, on `Esc`, or on an outside tap.
-- **Touch targets.** A `@media (pointer: coarse)` block enlarges every button, chip, pill and
-  menu item to at least 44 × 44 px on touch devices, while leaving the desktop layout compact.
-- **Notched phones.** `viewport-fit=cover` plus `env(safe-area-inset-*)` padding keeps content
-  clear of the rounded corners, the camera notch and the home indicator, including in landscape.
-- **Long strings wrap.** DOIs, arXiv IDs and email addresses break rather than push the page wide.
-
-If you edit the layout, re-check it at 320 px — it is the tightest real device width
-(iPhone SE) and the first place an overflow shows up.
+Checked at 320, 390, 820, 1280 and 1440 px for horizontal overflow (there is none). Touch
+devices get 40–44 px targets; notched phones are handled with `env(safe-area-inset-*)`.
+If you edit the layout, re-check at 320 px: it is the narrowest real device width.
 
 ---
 
 ## License
 
-Licensed under the **Apache License, Version 2.0** — see [LICENSE](LICENSE).
+Licensed under the **Apache License, Version 2.0**; see [LICENSE](LICENSE).
 
 That covers the *code*: the HTML structure, the CSS design system and the JavaScript. You are
 free to reuse it, including commercially, provided you keep the copyright and licence notice.
 
-It does **not** cover the personal material shipped alongside it — the photograph, the CV, the
+It does **not** cover the personal material shipped alongside it: the photographs, the CVs, the
 biography, and the publication list. Those remain the property of the copyright holder; replace
 them with your own if you build on this. See [NOTICE](NOTICE) for the specifics.
 
-Typefaces (Newsreader, Inter) are loaded from Google Fonts and licensed under the
-SIL Open Font License 1.1; they are not redistributed here.
+The self-hosted typefaces (Inter, Newsreader) are licensed under the SIL Open Font License 1.1;
+their licence texts are in `assets/fonts/`.

@@ -15,9 +15,10 @@ structure, the CSS design system, and the JavaScript.
 It does not grant rights to the personal material distributed alongside it,
 which remains the property of the copyright holder:
 
-  - assets/profile.jpg, assets/profile.webp, assets/profile-480.webp
+  - assets/profile.jpg, assets/profile.webp, assets/profile-480.webp,
+    assets/profile-portrait.jpg, assets/profile-portrait.webp
   - assets/og-image.png
-  - assets/Parham_Zilouchian_Moghaddam_CV.pdf
+  - every CV in assets/ (Parham_Zilouchian_Moghaddam_CV*.pdf)
   - the biographical text, publication list, and other personal information
 
 Please replace this material with your own if you reuse the code.
@@ -25,8 +26,11 @@ Please replace this material with your own if you reuse the code.
 --------------------------------------------------------------------------
 Third-party assets
 --------------------------------------------------------------------------
-Typefaces are loaded at runtime from Google Fonts and are not redistributed
-in this repository:
+The site self-hosts Latin subsets of two typefaces in assets/fonts/. Both are
+licensed under the SIL Open Font License, Version 1.1; the licence texts are
+distributed with them:
 
-  - Newsreader   — SIL Open Font License 1.1
-  - Inter        — SIL Open Font License 1.1
+  - Inter        — Copyright 2016 The Inter Project Authors
+                   assets/fonts/OFL-Inter.txt
+  - Newsreader   — Copyright 2020 The Newsreader Project Authors
+                   assets/fonts/OFL-Newsreader.txt

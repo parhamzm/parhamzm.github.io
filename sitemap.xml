@@ -3,18 +3,13 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://parhamzm.github.io/</loc>
-    <lastmod>2026-07-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
+    <lastmod>2026-10-11</lastmod>
     <image:image>
       <image:loc>https://parhamzm.github.io/assets/profile.jpg</image:loc>
-      <image:title>Parham Zilouchian Moghaddam</image:title>
     </image:image>
   </url>
   <url>
-    <loc>https://parhamzm.github.io/assets/Parham_Zilouchian_Moghaddam_CV.pdf</loc>
-    <lastmod>2026-07-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://parhamzm.github.io/assets/Parham_Zilouchian_Moghaddam_CV_Oct2026.pdf</loc>
+    <lastmod>2026-10-11</lastmod>
   </url>
 </urlset>

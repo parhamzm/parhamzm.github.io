@@ -16,7 +16,8 @@
 
 /* ════════════════════════════════════════════════════════════════════
    Parham Zilouchian Moghaddam — site behaviour
-   Theme · mobile nav · scroll spy · progress · reveals · BibTeX copy
+   Theme · section menu · scroll spy · compact-bar name · BibTeX
+   Everything here is an enhancement: the page is complete without it.
    ════════════════════════════════════════════════════════════════════ */
 (function () {
   'use strict';
@@ -24,143 +25,130 @@
   var root = document.documentElement;
   var THEME_KEY = 'pzm-theme';
 
-  function read(key)      { try { return localStorage.getItem(key); } catch (e) { return null; } }
-  function write(key, v)  { try { localStorage.setItem(key, v); } catch (e) {} }
+  function read(key)     { try { return localStorage.getItem(key); } catch (e) { return null; } }
+  function write(key, v) { try { localStorage.setItem(key, v); } catch (e) {} }
+  function each(list, fn) { Array.prototype.forEach.call(list, fn); }
+  function listen(mq, fn) {
+    if (!mq) return;
+    if (mq.addEventListener) mq.addEventListener('change', fn);
+    else if (mq.addListener) mq.addListener(fn);
+  }
 
   /* ── theme ─────────────────────────────────────────────── */
-  var toggle = document.getElementById('theme-toggle');
+  var themeButtons = document.querySelectorAll('.js-theme');
+  var themeMetas = document.querySelectorAll('meta[name="theme-color"]');
+  var darkQuery = window.matchMedia ? window.matchMedia('(prefers-color-scheme: dark)') : null;
 
   function applyTheme(theme) {
     root.setAttribute('data-theme', theme);
-    if (toggle) {
-      var label = theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme';
-      toggle.setAttribute('aria-label', label);
-      toggle.setAttribute('title', label);
-    }
+    var label = theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme';
+    each(themeButtons, function (btn) {
+      btn.setAttribute('aria-label', label);
+      btn.setAttribute('title', label);
+    });
+    // keep the browser chrome (mobile address bar, Safari tab bar) in step
+    // with the theme actually shown, not just the operating-system setting
+    var bg = getComputedStyle(root).getPropertyValue('--bg').trim();
+    if (bg) each(themeMetas, function (m) { m.setAttribute('content', bg); });
   }
 
-  var media = window.matchMedia('(prefers-color-scheme: dark)');
-  applyTheme(read(THEME_KEY) || (media.matches ? 'dark' : 'light'));
+  applyTheme(read(THEME_KEY) || (darkQuery && darkQuery.matches ? 'dark' : 'light'));
 
-  media.addEventListener('change', function (e) {
+  listen(darkQuery, function (e) {
     if (!read(THEME_KEY)) applyTheme(e.matches ? 'dark' : 'light');
   });
 
-  if (toggle) {
-    toggle.addEventListener('click', function () {
+  each(themeButtons, function (btn) {
+    btn.addEventListener('click', function () {
       var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
       applyTheme(next);
       write(THEME_KEY, next);
     });
+  });
+
+  /* ── section menu (narrow screens) ─────────────────────── */
+  var menu = document.getElementById('menu');
+  var menuButton = document.getElementById('menu-toggle');
+
+  function isMenuOpen() { return !!menu && menu.classList.contains('is-open'); }
+
+  function setMenu(open, returnFocus) {
+    if (!menu || !menuButton) return;
+    menu.classList.toggle('is-open', open);
+    menuButton.setAttribute('aria-expanded', open ? 'true' : 'false');
+    menuButton.setAttribute('aria-label', open ? 'Close section menu' : 'Open section menu');
+    if (!open && returnFocus) menuButton.focus();
   }
 
-  /* ── mobile navigation ─────────────────────────────────── */
-  var nav = document.getElementById('nav');
-  var navToggle = document.getElementById('nav-toggle');
-
-  function closeNav() {
-    if (!nav) return;
-    nav.classList.remove('open');
-    if (navToggle) navToggle.setAttribute('aria-expanded', 'false');
-  }
-
-  if (nav && navToggle) {
-    navToggle.addEventListener('click', function () {
-      var open = nav.classList.toggle('open');
-      navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-    });
-    nav.addEventListener('click', function (e) {
-      if (e.target.closest('a')) closeNav();
+  if (menu && menuButton) {
+    menuButton.addEventListener('click', function () { setMenu(!isMenuOpen()); });
+    menu.addEventListener('click', function (e) {
+      if (e.target.closest('a')) setMenu(false);
     });
     document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape') closeNav();
+      if (e.key === 'Escape' && isMenuOpen()) setMenu(false, true);
     });
     document.addEventListener('click', function (e) {
-      if (!nav.classList.contains('open')) return;
-      if (!e.target.closest('#nav') && !e.target.closest('#nav-toggle')) closeNav();
+      if (isMenuOpen() && !e.target.closest('#menu') && !e.target.closest('#menu-toggle')) setMenu(false);
+    });
+    // the bar (and its menu) disappears on wide screens; never leave it open
+    listen(window.matchMedia && window.matchMedia('(min-width: 1024px)'), function (e) {
+      if (e.matches) setMenu(false);
     });
   }
 
-  /* ── sticky bar state + reading progress ───────────────── */
+  /* ── compact bar: show the name once the big one scrolls away ── */
   var topbar = document.getElementById('topbar');
-  var progress = document.getElementById('scroll-progress');
+  var bigName = document.querySelector('.name');
+
+  if (topbar && bigName && 'IntersectionObserver' in window) {
+    new IntersectionObserver(function (entries) {
+      topbar.classList.toggle('show-brand', !entries[0].isIntersecting);
+    }, { rootMargin: '-56px 0px 0px 0px' }).observe(bigName);
+  } else if (topbar) {
+    topbar.classList.add('show-brand');
+  }
+
+  /* ── scroll spy: mark the section being read ───────────── */
+  var navLinks = document.querySelectorAll('.side-nav a[href^="#"], .menu a[href^="#"]');
+  var sections = [];
+  each(document.querySelectorAll('.side-nav a[href^="#"]'), function (a) {
+    var s = document.getElementById(a.getAttribute('href').slice(1));
+    if (s) sections.push(s);
+  });
+
+  var current = null;
   var ticking = false;
 
-  function onScroll() {
-    var y = window.scrollY || window.pageYOffset;
-    if (topbar) topbar.classList.toggle('scrolled', y > 8);
-    if (progress) {
-      var max = document.documentElement.scrollHeight - window.innerHeight;
-      progress.style.width = (max > 0 ? Math.min(y / max, 1) * 100 : 0) + '%';
-    }
+  function spy() {
     ticking = false;
-  }
-
-  window.addEventListener('scroll', function () {
-    if (!ticking) { ticking = true; window.requestAnimationFrame(onScroll); }
-  }, { passive: true });
-  window.addEventListener('resize', onScroll, { passive: true });
-  onScroll();
-
-  /* ── scroll spy ────────────────────────────────────────── */
-  var links = Array.prototype.slice.call(document.querySelectorAll('.nav a[href^="#"]'));
-  var sections = links
-    .map(function (a) { return document.querySelector(a.getAttribute('href')); })
-    .filter(Boolean);
-
-  if ('IntersectionObserver' in window && sections.length) {
-    var visible = Object.create(null);
-
-    var spy = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        visible[entry.target.id] = entry.isIntersecting;
-      });
-      // highlight the first section currently in the reading band
-      var current = null;
-      for (var i = 0; i < sections.length; i++) {
-        if (visible[sections[i].id]) { current = sections[i].id; break; }
-      }
-      links.forEach(function (a) {
-        a.classList.toggle('active', current !== null && a.getAttribute('href') === '#' + current);
-      });
-    }, { rootMargin: '-84px 0px -58% 0px', threshold: 0 });
-
-    sections.forEach(function (s) { spy.observe(s); });
-  }
-
-  /* ── reveal on scroll ──────────────────────────────────── */
-  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  if (!reduce && 'IntersectionObserver' in window) {
-    var targets = document.querySelectorAll(
-      '.section-head, .section-lede, .group-head, .prose > *, .about-side > *, ' +
-      '.news li, .tl-item, .pub, .edu-card, .honors li, .teach-table, ' +
-      '.proj-card, .cert-card, .skill-card, .ref-card, .contact-panel, .postal'
-    );
-
-    Array.prototype.forEach.call(targets, function (el) { el.classList.add('reveal'); });
-
-    // Once a target is marked .reveal it starts at opacity:0 and only the
-    // observer below ever makes it visible again — if setup throws (or a
-    // browser's IntersectionObserver misbehaves), fail open and show
-    // everything immediately rather than leave the page stuck invisible.
-    try {
-      var revealer = new IntersectionObserver(function (entries, obs) {
-        var shown = 0;
-        entries.forEach(function (entry) {
-          if (!entry.isIntersecting) return;
-          var el = entry.target;
-          el.style.transitionDelay = Math.min(shown++ * 55, 260) + 'ms';
-          el.classList.add('in');
-          obs.unobserve(el);
-        });
-      }, { rootMargin: '0px 0px -6% 0px', threshold: 0.05 });
-
-      Array.prototype.forEach.call(targets, function (el) { revealer.observe(el); });
-    } catch (e) {
-      Array.prototype.forEach.call(targets, function (el) { el.classList.add('in'); });
+    if (!sections.length) return;
+    var line = window.innerHeight * 0.3;
+    var active = sections[0].id;
+    for (var i = 0; i < sections.length; i++) {
+      if (sections[i].getBoundingClientRect().top <= line) active = sections[i].id;
     }
+    // short final sections can never reach the reading line: at the very
+    // bottom of the page, the last section is the one being read
+    var doc = document.documentElement;
+    if (window.innerHeight + window.pageYOffset >= doc.scrollHeight - 2) {
+      active = sections[sections.length - 1].id;
+    }
+    if (active === current) return;
+    current = active;
+    each(navLinks, function (a) {
+      if (a.getAttribute('href') === '#' + active) a.setAttribute('aria-current', 'true');
+      else a.removeAttribute('aria-current');
+    });
   }
+
+  function requestSpy() {
+    if (!ticking) { ticking = true; window.requestAnimationFrame(spy); }
+  }
+
+  window.addEventListener('scroll', requestSpy, { passive: true });
+  window.addEventListener('resize', requestSpy, { passive: true });
+  spy();
 
   /* ── toast ─────────────────────────────────────────────── */
   var toastEl = document.getElementById('toast');
@@ -174,7 +162,17 @@
     toastTimer = setTimeout(function () { toastEl.classList.remove('show'); }, 2400);
   }
 
-  /* ── copy BibTeX ───────────────────────────────────────── */
+  /* ── BibTeX: expand inline, copy with one click ────────── */
+  each(document.querySelectorAll('.js-bib'), function (btn) {
+    var panel = document.getElementById(btn.getAttribute('aria-controls'));
+    if (!panel) return;
+    btn.addEventListener('click', function () {
+      var open = btn.getAttribute('aria-expanded') !== 'true';
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      panel.classList.toggle('is-open', open);
+    });
+  });
+
   function copyText(text) {
     if (navigator.clipboard && window.isSecureContext) {
       return navigator.clipboard.writeText(text);
@@ -192,22 +190,23 @@
     });
   }
 
-  Array.prototype.forEach.call(document.querySelectorAll('.js-cite'), function (btn) {
-    btn.addEventListener('click', function () {
-      var card = btn.closest('.pub-body');
-      var pre = card && card.querySelector('.bibtex');
-      if (!pre) return;
+  function selectContents(el) {
+    var range = document.createRange();
+    range.selectNodeContents(el);
+    var sel = window.getSelection();
+    sel.removeAllRanges();
+    sel.addRange(range);
+  }
 
+  each(document.querySelectorAll('.js-copy'), function (btn) {
+    btn.addEventListener('click', function () {
+      var pre = document.getElementById(btn.getAttribute('data-copy'));
+      if (!pre) return;
       copyText(pre.textContent.trim()).then(function () {
-        var original = btn.textContent;
-        btn.textContent = 'Copied';
-        btn.classList.add('copied');
         toast('BibTeX copied to clipboard');
-        setTimeout(function () {
-          btn.textContent = original;
-          btn.classList.remove('copied');
-        }, 1800);
       }).catch(function () {
+        // leave the entry selected so it can be copied by hand
+        selectContents(pre);
         toast('Press ⌘/Ctrl + C to copy');
       });
     });
