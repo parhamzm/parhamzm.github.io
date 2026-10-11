@@ -212,6 +212,18 @@
     });
   });
 
+  /* ── copy email (mailto links do nothing for webmail users) ── */
+  each(document.querySelectorAll('.js-copy-email'), function (btn) {
+    btn.addEventListener('click', function () {
+      var email = btn.getAttribute('data-email');
+      copyText(email).then(function () {
+        toast('Email address copied');
+      }).catch(function () {
+        toast(email);
+      });
+    });
+  });
+
   /* ── footer year ───────────────────────────────────────── */
   var year = document.getElementById('year');
   if (year) year.textContent = String(new Date().getFullYear());

@@ -17,7 +17,7 @@
 
 <!-- ══════════════════════ PRIMARY SEO ══════════════════════ -->
 <title>Parham Zilouchian Moghaddam — AI Researcher, University of Tehran</title>
-<meta name="description" content="AI researcher at the University of Tehran working on trustworthy AI, LLM evaluation, accountable AI agents, generative models and efficient ML systems.">
+<meta name="description" content="AI researcher at the University of Tehran studying how to evaluate AI systems and hold them accountable: LLM evaluation, agents, and efficient deep learning.">
 <meta name="author" content="Parham Zilouchian Moghaddam">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <link rel="canonical" href="https://parhamzm.github.io/">
@@ -29,7 +29,7 @@
 <meta property="og:type" content="profile">
 <meta property="og:site_name" content="Parham Zilouchian Moghaddam">
 <meta property="og:title" content="Parham Zilouchian Moghaddam — AI Researcher">
-<meta property="og:description" content="Trustworthy AI, LLM evaluation and accountable AI agents, with a background in generative models and efficient ML systems. University of Tehran · formerly QCRI.">
+<meta property="og:description" content="I study how to evaluate AI systems and how to hold them accountable. Researcher at the University of Tehran, previously at QCRI.">
 <meta property="og:url" content="https://parhamzm.github.io/">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://parhamzm.github.io/assets/og-image.png">
@@ -40,7 +40,7 @@
 <meta property="profile:last_name" content="Zilouchian Moghaddam">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Parham Zilouchian Moghaddam — AI Researcher">
-<meta name="twitter:description" content="Trustworthy AI, LLM evaluation and accountable AI agents, with a background in generative models and efficient ML systems. University of Tehran · formerly QCRI.">
+<meta name="twitter:description" content="I study how to evaluate AI systems and how to hold them accountable. Researcher at the University of Tehran, previously at QCRI.">
 <meta name="twitter:image" content="https://parhamzm.github.io/assets/og-image.png">
 <meta name="twitter:image:alt" content="Parham Zilouchian Moghaddam — AI Researcher, University of Tehran">
 
@@ -53,7 +53,8 @@
      data sent to a font CDN, and nothing to break if a CDN is unreachable. -->
 <link rel="preload" href="assets/fonts/inter-latin-var.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/newsreader-latin-var.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="assets/style.css?v=2026-10-11">
+<link rel="preload" href="assets/fonts/newsreader-italic-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/style.css?v=2026-10-11b">
 
 <!-- Resolve the theme before first paint so there is never a flash, and flag
      that JS is available (for progressive enhancements such as BibTeX toggles) -->
@@ -71,7 +72,7 @@
       "@id": "https://parhamzm.github.io/#website",
       "url": "https://parhamzm.github.io/",
       "name": "Parham Zilouchian Moghaddam",
-      "description": "Academic homepage of Parham Zilouchian Moghaddam, AI researcher working on trustworthy AI and LLM evaluation.",
+      "description": "Academic homepage of Parham Zilouchian Moghaddam, AI researcher working on the evaluation and accountability of AI systems.",
       "inLanguage": "en",
       "publisher": { "@id": "https://parhamzm.github.io/#person" }
     },
@@ -188,31 +189,42 @@
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 
-<!-- ══════════════════════ ICON SPRITE ══════════════════════ -->
+<!-- ══════════════════════ ICON SPRITE + MOTIF ══════════════════════ -->
 <svg class="sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+  <defs>
+    <!-- eight-pointed star (khatam) lattice, after Persian tilework and carpet borders -->
+    <pattern id="khatam" width="56" height="56" patternUnits="userSpaceOnUse">
+      <g style="fill: none; stroke: var(--gold); stroke-opacity: .5; stroke-width: 1">
+        <rect x="8.2" y="8.2" width="39.6" height="39.6"/>
+        <rect x="8.2" y="8.2" width="39.6" height="39.6" transform="rotate(45 28 28)"/>
+      </g>
+    </pattern>
+  </defs>
+  <symbol id="i-mark" viewBox="0 0 24 24"><rect width="24" height="24" rx="6" style="fill: var(--accent)"/><path d="M8.4 17.4V6.6h5.1a3.5 3.5 0 0 1 0 7H9.9" style="fill: none; stroke: var(--on-accent); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round"/></symbol>
   <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3.5v11m0 0 4-4m-4 4-4-4"/><path d="M4.5 16.5v2a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2v-2"/></symbol>
   <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m3.6 6.6 8.4 6 8.4-6"/></symbol>
   <symbol id="i-scholar" viewBox="0 0 24 24"><path d="M12 3 1.5 9 12 15l10.5-6z"/><path d="M5.5 11.4V16c0 1.9 2.9 3.4 6.5 3.4s6.5-1.5 6.5-3.4v-4.6"/></symbol>
   <symbol id="i-orcid" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9 9v7M9 6.6v.1M13 16V9h2.1a3.5 3.5 0 0 1 0 7z"/></symbol>
   <symbol id="i-github" viewBox="0 0 24 24"><path d="M9 19.5c-4.3 1.3-4.3-2.2-6-2.6m12 5.1v-3.3a2.9 2.9 0 0 0-.8-2.2c2.7-.3 5.5-1.3 5.5-5.9a4.6 4.6 0 0 0-1.3-3.2 4.3 4.3 0 0 0-.1-3.2s-1-.3-3.4 1.3a11.7 11.7 0 0 0-6 0C6.5 3.9 5.5 4.2 5.5 4.2a4.3 4.3 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 10.6c0 4.6 2.8 5.6 5.5 5.9a2.9 2.9 0 0 0-.8 2.2V22"/></symbol>
   <symbol id="i-linkedin" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M7.5 10.5V17M7.5 7.4v.1M11.6 17v-4a2.4 2.4 0 0 1 4.8 0v4M11.6 10.5V17"/></symbol>
-  <symbol id="i-medium" viewBox="0 0 24 24"><ellipse cx="7" cy="12" rx="4.5" ry="6"/><ellipse cx="16.2" cy="12" rx="2" ry="5.6"/><ellipse cx="21.2" cy="12" rx=".8" ry="5.2"/></symbol>
-  <symbol id="i-youtube" viewBox="0 0 24 24"><rect x="2.5" y="5.5" width="19" height="13" rx="4"/><path d="m10.2 9.4 5 2.6-5 2.6z"/></symbol>
   <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.1"/><path d="M12 2.3v2.3M12 19.4v2.3M2.3 12h2.3M19.4 12h2.3M5 5l1.6 1.6M17.4 17.4 19 19M19 5l-1.6 1.6M6.6 17.4 5 19"/></symbol>
   <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20.5 14.6A8.6 8.6 0 0 1 9.4 3.5a8.6 8.6 0 1 0 11.1 11.1z"/></symbol>
   <symbol id="i-menu" viewBox="0 0 24 24"><path d="M3.5 7h17M3.5 12h17M3.5 17h17"/></symbol>
   <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
   <symbol id="i-external" viewBox="0 0 24 24"><path d="M8 16 16 8M9.5 8H16v6.5"/></symbol>
   <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8.5" y="8.5" width="12" height="12" rx="2.5"/><path d="M15.5 8.5V6a2.5 2.5 0 0 0-2.5-2.5H6A2.5 2.5 0 0 0 3.5 6v7A2.5 2.5 0 0 0 6 15.5h2.5"/></symbol>
-  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.4"/></symbol>
   <symbol id="i-arrow-up" viewBox="0 0 24 24"><path d="M12 19V5m0 0-6 6m6-6 6 6"/></symbol>
+  <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m6.5 9.5 5.5 5.5 5.5-5.5"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3.3 5 5.9v5.6c0 4.3 2.9 7.8 7 9.2 4.1-1.4 7-4.9 7-9.2V5.9z"/><path d="m8.9 12.1 2.2 2.2 4.2-4.3"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24"><rect x="6.6" y="6.6" width="10.8" height="10.8"/><rect x="6.6" y="6.6" width="10.8" height="10.8" transform="rotate(45 12 12)"/><circle cx="12" cy="12" r="1.6"/></symbol>
+  <symbol id="i-chip" viewBox="0 0 24 24"><rect x="6.8" y="6.8" width="10.4" height="10.4" rx="2"/><path d="M10 3.6v3.2M14 3.6v3.2M10 17.2v3.2M14 17.2v3.2M3.6 10h3.2M3.6 14h3.2M17.2 10h3.2M17.2 14h3.2"/><path d="M10 10h4v4h-4z"/></symbol>
 </svg>
 
 <!-- ══════════════════════ COMPACT BAR (narrow screens) ══════════════════════ -->
 <div class="topbar" id="topbar">
-  <a class="topbar-brand" href="#top">
-    <span class="brand-full">Parham Zilouchian Moghaddam</span>
-    <span class="brand-short" aria-hidden="true">P. Z. Moghaddam</span>
+  <a class="topbar-brand" href="#top" aria-label="Parham Zilouchian Moghaddam, back to top">
+    <svg class="brand-mark" aria-hidden="true"><use href="#i-mark"/></svg>
+    <span class="brand-text" aria-hidden="true"><span class="brand-full">Parham Zilouchian Moghaddam</span><span class="brand-short">P. Z. Moghaddam</span></span>
   </a>
   <div class="topbar-actions">
     <button class="icon-btn js-theme" type="button" aria-label="Switch colour theme">
@@ -309,75 +321,114 @@
   <main id="main" tabindex="-1">
 
     <!-- ══════════════════════════════ ABOUT ══════════════════════════════ -->
-    <section class="section" id="about" aria-labelledby="about-title">
-      <div class="section-head">
-        <h2 class="section-title" id="about-title">About</h2>
+    <section class="section section-about" id="about" aria-labelledby="about-title">
+      <h2 class="visually-hidden" id="about-title">About</h2>
+
+      <div class="intro">
+        <svg class="motif" aria-hidden="true" focusable="false"><rect width="100%" height="100%" fill="url(#khatam)"/></svg>
+
+        <p class="intro-statement">I study how to evaluate AI systems and how to hold them <em>accountable</em>.</p>
+
+        <ul class="interests" aria-label="Research interests">
+          <li>Trustworthy AI</li>
+          <li>LLM Evaluation &amp; Reliability</li>
+          <li>Efficient ML Systems</li>
+          <li>Generative &amp; Multimodal Models</li>
+          <li>Human–AI Interaction</li>
+          <li>Accountable AI Agents</li>
+        </ul>
+
+        <dl class="glance">
+          <div>
+            <dt>Now</dt>
+            <dd><strong>Researcher</strong> University of Tehran</dd>
+          </div>
+          <div>
+            <dt>Previously</dt>
+            <dd><strong>Researcher, QCRI</strong> Fanar platform, 2025–26</dd>
+          </div>
+          <div>
+            <dt>Education</dt>
+            <dd><strong>M.Sc., University of Tehran</strong> Ranked 1st in program</dd>
+          </div>
+        </dl>
       </div>
 
       <div class="bio">
-        <p class="lead">
-          I am a machine learning researcher who keeps returning to the same question from different
-          angles: not just what a model can do, but whether anyone, including the model itself, can be
-          held to account for it.
+        <p>
+          I am a researcher at the University of Tehran. Since May 2026 I have been working with
+          <a href="https://www.linkedin.com/in/mehrdad-tajbakhsh-500214102/" target="_blank" rel="noopener">Dr. Mehrdad Tajbakhsh</a>
+          on accountability for autonomous agents. We are developing ways for an agent to record, explain,
+          and defend its actions, and studying sovereign AI: how institutional control over AI infrastructure
+          affects whether agents can be governed. As part of the same project, I am building an open-weight
+          language model that assists experts with intangible-asset valuation. It draws on domain knowledge
+          through retrieval and is designed to protect the information users share with it.
         </p>
         <p>
-          My current work, with <a href="https://www.linkedin.com/in/mehrdad-tajbakhsh-500214102/" target="_blank" rel="noopener">Dr. Mehrdad Tajbakhsh</a>,
-          is on trustworthy LLM systems and agent accountability. I develop mechanisms that let autonomous
-          agents record, explain, and defend their actions; study <em>Sovereign AI</em>, that is, how
-          institutional control over AI infrastructure shapes whether agents can be governed; and am building
-          an open-weight LLM co-expert for intangible-asset valuation, grounded in domain knowledge through
-          retrieval-augmented generation and designed to protect the information users disclose to it.
-        </p>
-        <p>
-          Before this, I spent a year as a researcher at the
+          Before that, I spent a year as a researcher at the
           <a href="https://www.hbku.edu.qa/en/qcri" target="_blank" rel="noopener">Qatar Computing Research Institute</a>,
-          where I led culturally aligned image-generation benchmarking for
-          <a href="https://www.fanar.qa/en" target="_blank" rel="noopener">Fanar</a>, an Arabic-centric
-          multimodal generative AI platform. I built the platform’s image-generation evaluation suite,
-          designed fifteen LLM-as-a-judge metrics for cultural accuracy and generation quality that informed
-          model selection, and assessed how closely the automated judgments agreed with Elo rankings from
-          human pairwise comparisons.
+          working on <a href="https://www.fanar.qa/en" target="_blank" rel="noopener">Fanar</a>, an
+          Arabic-centric multimodal generative AI platform. I led the benchmarking of its culturally aligned
+          image generation. I built the evaluation suite, designed fifteen LLM-as-a-judge metrics for cultural
+          accuracy and image quality that the team used in model selection, and measured how well the automated
+          judges agreed with Elo rankings from human pairwise comparisons. A manuscript on this work,
+          <em>Fanar Oryx</em>, is in preparation <a class="ref" href="#pub-6">[6]</a>.
         </p>
         <p>
-          I completed my M.Sc. in Computer Engineering at the
-          <a href="https://ut.ac.ir/en" target="_blank" rel="noopener">University of Tehran</a>, graduating
-          first among the Computer Architecture students in my program. My thesis, supervised by
-          <a href="https://ece.ut.ac.ir/en/~modarressi" target="_blank" rel="noopener">Dr. Mehdi Modarressi</a> and
-          Dr. Mohammad Amin Sadeghi,
-          produced <strong>NU-Class Net</strong>, a neural architecture that restores the visual quality of
-          low-bitrate compressed video by predicting residuals after conventional decoding, without modifying
-          the codec; the work is published in <em>Engineering Applications of Artificial Intelligence</em>
+          I earned my M.Sc. in Computer Engineering at the
+          <a href="https://ut.ac.ir/en" target="_blank" rel="noopener">University of Tehran</a> in 2023 and
+          graduated first among the Computer Architecture students. My thesis, advised by
+          <a href="https://ece.ut.ac.ir/en/~modarressi" target="_blank" rel="noopener">Dr. Mehdi Modarressi</a>
+          and Dr. Mohammad Amin Sadeghi, introduced <strong>NU-Class Net</strong>, a network that restores the
+          quality of low-bitrate compressed video after standard decoding, with no change to the codec. It was
+          published in <em>Engineering Applications of Artificial Intelligence</em> in 2025
           <a class="ref" href="#pub-1">[1]</a>.
         </p>
         <p>
-          I continue to work in two labs at Tehran’s School of ECE. In the Computer Vision Lab, with
+          I still work with two labs in Tehran. In the Computer Vision Lab, with
           <a href="https://ece.ut.ac.ir/en/~tavassolipour" target="_blank" rel="noopener">Dr. Mostafa Tavassolipour</a>,
-          I am developing a generative–algorithmic assistant that proposes carpet patterns for designers to
-          refine while enforcing the limited-palette, pixel-grid constraints of machine weaving. In the
+          I am developing a generative tool that proposes carpet patterns for designers to refine, with
+          algorithms that keep every proposal within the palette and pixel-grid limits of machine weaving. In the
           <a href="https://utnoc.ir/new/" target="_blank" rel="noopener">Intelligent Architectures for Computing Systems Lab</a>,
-          with Dr. Modarressi, I work on efficient deep learning for EEG analysis on wearable devices
-          <a class="ref" href="#pub-5">[5]</a> and coordinate the lab’s reading
-          group on LLM hardware and efficiency.
+          with Dr. Modarressi, I work on compact deep learning models for EEG analysis on wearable devices
+          <a class="ref" href="#pub-5">[5]</a> and coordinate the lab’s reading group on LLM hardware and
+          efficiency.
         </p>
         <p>
-          Alongside research, I have developed computer vision models in industry, founded a marketplace
-          startup, served as a teaching assistant for eight university courses (five as head TA), and written
-          and filmed explanations of ideas I find beautiful. I was admitted to the Ph.D. program in Computer
-          Science at the University of California, Irvine, for Fall 2024 and Fall 2025, but could not enroll
-          because of U.S. visa processing delays. I am now looking for a Ph.D. position where I can continue
-          this work.
+          I have also been a teaching assistant for eight university courses, five of them as head TA, including
+          Trustworthy AI at the University of Tehran since 2023. I was admitted to the Ph.D. program in Computer
+          Science at UC Irvine for Fall 2024 and again for Fall 2025, but could not enroll because of U.S. visa
+          delays. I am now looking for a Ph.D. position where I can continue this research.
         </p>
       </div>
 
-      <h3 class="subhead">Research interests</h3>
-      <ul class="interests">
-        <li>Trustworthy AI</li>
-        <li>LLM Evaluation &amp; Reliability</li>
-        <li>Efficient ML Systems</li>
-        <li>Generative &amp; Multimodal Models</li>
-        <li>Human–AI Interaction</li>
-        <li>Accountable AI Agents</li>
-      </ul>
+      <h3 class="subhead">Research directions</h3>
+      <ol class="themes">
+        <li class="theme">
+          <span class="theme-icon" aria-hidden="true"><svg class="i"><use href="#i-shield"/></svg></span>
+          <div>
+            <h4 class="theme-title">Evaluating AI systems and holding agents accountable</h4>
+            <p>Methods for judging generated content, including LLM judges compared against human preferences, and mechanisms that let autonomous agents record, explain, and defend their decisions.</p>
+            <p class="theme-refs">Related: <a class="ref" href="#pub-6">[6]</a> and my <a href="#exp-accountability">current project</a></p>
+          </div>
+        </li>
+        <li class="theme">
+          <span class="theme-icon" aria-hidden="true"><svg class="i"><use href="#i-star"/></svg></span>
+          <div>
+            <h4 class="theme-title">Generative models with cultural and physical constraints</h4>
+            <p>Image generation aligned with Arabic-Islamic visual culture, and carpet-pattern generation in which every design must fit a limited palette and the pixel grid of a weaving machine.</p>
+            <p class="theme-refs">Related: <a class="ref" href="#pub-6">[6]</a> and the <a href="#exp-cv-lab">Computer Vision Lab project</a></p>
+          </div>
+        </li>
+        <li class="theme">
+          <span class="theme-icon" aria-hidden="true"><svg class="i"><use href="#i-chip"/></svg></span>
+          <div>
+            <h4 class="theme-title">Efficient deep learning</h4>
+            <p>Getting more out of limited computation: restoring compressed video without changing the codec, compact EEG models for wearable devices, and deep learning acceleration in 3D-stacked memory.</p>
+            <p class="theme-refs">Related: <a class="ref" href="#pub-1">[1]</a> <a class="ref" href="#pub-5">[5]</a> <a class="ref" href="#pub-2">[2]</a> <a class="ref" href="#pub-7">[7]</a></p>
+          </div>
+        </li>
+      </ol>
     </section>
 
     <!-- ══════════════════════════════ NEWS ══════════════════════════════ -->
@@ -389,19 +440,19 @@
       <ol class="news">
         <li>
           <time datetime="2026-06">Jun 2026</time>
-          <p>Preprint released: <a href="https://arxiv.org/abs/2606.12742" target="_blank" rel="noopener">“Reducing the Complexity of Deep Learning Models for EEG Analysis on Wearable Devices”</a> (arXiv:2606.12742).</p>
+          <p>New preprint on reducing the complexity of deep learning models for EEG analysis on wearable devices: <a href="https://arxiv.org/abs/2606.12742" target="_blank" rel="noopener">arXiv:2606.12742</a>.</p>
         </li>
         <li>
           <time datetime="2026-05">May 2026</time>
-          <p>Began research on trustworthy LLM systems and agent accountability with Dr. Mehrdad Tajbakhsh.</p>
+          <p>Started working with Dr. Mehrdad Tajbakhsh on trustworthy LLM systems and accountability for autonomous agents.</p>
         </li>
         <li>
           <time datetime="2026-03">Mar 2026</time>
-          <p>Concluded a year-long research appointment at <a href="https://www.hbku.edu.qa/en/qcri" target="_blank" rel="noopener">QCRI</a>; the <em>Fanar Oryx</em> manuscript on culturally aligned image generation is in preparation.</p>
+          <p>Finished my year at <a href="https://www.hbku.edu.qa/en/qcri" target="_blank" rel="noopener">QCRI</a>. The <em>Fanar Oryx</em> manuscript on culturally aligned image generation is in preparation.</p>
         </li>
         <li>
           <time datetime="2026">2026</time>
-          <p>Awarded the <a href="https://profile.ut.ac.ir/en/~96755111/grants" target="_blank" rel="noopener">HATEF Technology Development Grant</a> by the University of Tehran, selected from over 300 proposals.</p>
+          <p>Received the <a href="https://profile.ut.ac.ir/en/~96755111/grants" target="_blank" rel="noopener">HATEF Technology Development Grant</a> from the University of Tehran, chosen from more than 300 proposals.</p>
         </li>
         <li>
           <time datetime="2025-03">Mar 2025</time>
@@ -409,15 +460,15 @@
         </li>
         <li>
           <time datetime="2025-03">Mar 2025</time>
-          <p>Joined <a href="https://www.hbku.edu.qa/en/qcri" target="_blank" rel="noopener">QCRI</a> as a researcher on <a href="https://www.fanar.qa/en" target="_blank" rel="noopener">Fanar</a>, leading culturally aligned image-generation benchmarking.</p>
+          <p>Joined <a href="https://www.hbku.edu.qa/en/qcri" target="_blank" rel="noopener">QCRI</a> as a researcher on the <a href="https://www.fanar.qa/en" target="_blank" rel="noopener">Fanar</a> platform, leading the benchmarking of culturally aligned image generation.</p>
         </li>
         <li>
           <time datetime="2024-04">Apr 2024</time>
-          <p>Joined the Computer Vision Lab at the University of Tehran to work on constraint-aware generative design.</p>
+          <p>Joined the Computer Vision Lab at the University of Tehran to work on generative design for machine weaving.</p>
         </li>
         <li>
           <time datetime="2024-01">Jan 2024</time>
-          <p>“Smart Memory” published in <em>IEEE Computer Architecture Letters</em>, vol. 23, no. 1 <a class="ref" href="#pub-2">[2]</a>.</p>
+          <p><em>Smart Memory</em> published in <em>IEEE Computer Architecture Letters</em>, vol. 23, no. 1 <a class="ref" href="#pub-2">[2]</a>.</p>
         </li>
       </ol>
     </section>
@@ -433,14 +484,15 @@
       <ol class="pubs">
 
         <li class="pub" id="pub-1">
-          <div class="pub-side"><span class="pub-num">[1]</span><span class="badge">EAAI</span></div>
+          <span class="pub-num">[1]</span>
+          <span class="pub-tile"><b>EAAI</b><span>2025</span></span>
           <div class="pub-main">
             <h4 class="pub-title"><a href="https://doi.org/10.1016/j.engappai.2025.110118" target="_blank" rel="noopener">A novel deep learning-based approach for video quality enhancement</a></h4>
             <p class="pub-authors"><span class="me">P. Z. Moghaddam</span>, M. Modarressi, M. A. Sadeghi</p>
             <p class="pub-venue"><cite>Engineering Applications of Artificial Intelligence</cite>, vol. 144, art. 110118, 2025 · <span class="nowrap">Introduces NU-Class Net</span></p>
             <div class="pub-actions">
               <a class="pill" href="https://doi.org/10.1016/j.engappai.2025.110118" target="_blank" rel="noopener">DOI</a>
-              <a class="pill" href="https://github.com/parhamzm/NU-Class-Net" target="_blank" rel="noopener">Code</a>
+              <a class="pill" href="https://github.com/parhamzm/NU-Class-Net" target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#i-github"/></svg>Code</a>
               <button class="pill js-bib" type="button" aria-expanded="false" aria-controls="bib-1">BibTeX</button>
             </div>
             <div class="bib" id="bib-1">
@@ -459,7 +511,8 @@
         </li>
 
         <li class="pub" id="pub-2">
-          <div class="pub-side"><span class="pub-num">[2]</span><span class="badge">IEEE CAL</span></div>
+          <span class="pub-num">[2]</span>
+          <span class="pub-tile"><b>IEEE CAL</b><span>2024</span></span>
           <div class="pub-main">
             <h4 class="pub-title"><a href="https://doi.org/10.1109/LCA.2023.3287976" target="_blank" rel="noopener">Smart Memory: Deep Learning Acceleration in 3D-Stacked Memories</a></h4>
             <p class="pub-authors">S. H. S. A. Rezaei, <span class="me">P. Z. Moghaddam</span>, M. Modarressi</p>
@@ -485,7 +538,8 @@
         </li>
 
         <li class="pub" id="pub-3">
-          <div class="pub-side"><span class="pub-num">[3]</span><span class="badge">Conference</span></div>
+          <span class="pub-num">[3]</span>
+          <span class="pub-tile"><b>Conference</b><span>2019</span></span>
           <div class="pub-main">
             <h4 class="pub-title"><a href="https://faculty.kashanu.ac.ir/salimi/fa/articlesInConferences/6284" target="_blank" rel="noopener">Deep Learning Based on Support Vector Machines (SVM)</a></h4>
             <p class="pub-authors"><span class="me">P. Z. Moghaddam</span>, J. S. Sartakhti</p>
@@ -508,13 +562,14 @@
         </li>
 
         <li class="pub" id="pub-4">
-          <div class="pub-side"><span class="pub-num">[4]</span><span class="badge">Conference</span></div>
+          <span class="pub-num">[4]</span>
+          <span class="pub-tile"><b>Conference</b><span>2019</span></span>
           <div class="pub-main">
             <h4 class="pub-title">Improving Robot Behavior in a Real-Time Game Using the Grey Wolf Optimizer</h4>
             <p class="pub-authors"><span class="me">P. Z. Moghaddam</span>, F. Lotfali, J. S. Sartakhti</p>
             <p class="pub-venue"><cite>2nd International Computer Games Conference: Opportunities and Challenges</cite>, 2019 · In Persian</p>
             <div class="pub-actions">
-              <a class="pill" href="https://github.com/parhamzm/Planet-Wars_GWO" target="_blank" rel="noopener">Code</a>
+              <a class="pill" href="https://github.com/parhamzm/Planet-Wars_GWO" target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#i-github"/></svg>Code</a>
               <button class="pill js-bib" type="button" aria-expanded="false" aria-controls="bib-4">BibTeX</button>
             </div>
             <div class="bib" id="bib-4">
@@ -536,7 +591,8 @@
       <ol class="pubs" start="5">
 
         <li class="pub" id="pub-5">
-          <div class="pub-side"><span class="pub-num">[5]</span><span class="badge badge-muted">arXiv</span></div>
+          <span class="pub-num">[5]</span>
+          <span class="pub-tile is-muted"><b>arXiv</b><span>2026</span></span>
           <div class="pub-main">
             <h4 class="pub-title"><a href="https://arxiv.org/abs/2606.12742" target="_blank" rel="noopener">Reducing the Complexity of Deep Learning Models for EEG Analysis on Wearable Devices</a></h4>
             <p class="pub-authors">F. Shayeste Roodi, <span class="me">P. Z. Moghaddam</span>, M. Mohammadi-Nasab, M. Modarressi, M. E. Salehi Nasab, M. Daneshtalab</p>
@@ -561,20 +617,22 @@
         </li>
 
         <li class="pub" id="pub-6">
-          <div class="pub-side"><span class="pub-num">[6]</span><span class="badge badge-muted">In prep.</span></div>
+          <span class="pub-num">[6]</span>
+          <span class="pub-tile is-muted"><b>In prep.</b><span>2026</span></span>
           <div class="pub-main">
             <h4 class="pub-title">Fanar Oryx: Culturally Aligned Image Generation for Arabic-Islamic Visual Culture</h4>
             <p class="pub-authors"><span class="me">P. Z. Moghaddam</span>, K. Isufaj, M. A. Sadeghi, R. Abolhasani, A. A. Al-Nuaimi</p>
-            <p class="pub-venue">Manuscript in preparation, 2026</p>
+            <p class="pub-venue">Manuscript in preparation</p>
           </div>
         </li>
 
         <li class="pub" id="pub-7">
-          <div class="pub-side"><span class="pub-num">[7]</span><span class="badge badge-muted">In prep.</span></div>
+          <span class="pub-num">[7]</span>
+          <span class="pub-tile is-muted"><b>In prep.</b><span>2026</span></span>
           <div class="pub-main">
             <h4 class="pub-title">Faster Wav2Vec: Improving the Inference Speed of Speech Representation Models</h4>
             <p class="pub-authors"><span class="me">P. Z. Moghaddam</span>, M. Charbaghi, J. S. Sartakhti</p>
-            <p class="pub-venue">Manuscript in preparation, 2026</p>
+            <p class="pub-venue">Manuscript in preparation</p>
           </div>
         </li>
 
@@ -589,16 +647,16 @@
 
       <ol class="entries">
 
-        <li class="entry">
+        <li class="entry" id="exp-accountability">
           <p class="entry-date">May 2026 – Present</p>
           <div class="entry-body">
-            <h3 class="entry-title">Researcher — Trustworthy LLM Systems and Agent Accountability</h3>
-            <p class="entry-meta">In collaboration with <a href="https://www.linkedin.com/in/mehrdad-tajbakhsh-500214102/" target="_blank" rel="noopener">Dr. Mehrdad Tajbakhsh</a></p>
+            <h3 class="entry-title">Trustworthy LLM Systems and Agent Accountability</h3>
+            <p class="entry-org">Researcher · in collaboration with <a href="https://www.linkedin.com/in/mehrdad-tajbakhsh-500214102/" target="_blank" rel="noopener">Dr. Mehrdad Tajbakhsh</a></p>
             <ul class="bullets">
               <li>Developing accountability mechanisms for autonomous agents: recording, explaining, and defending their actions.</li>
-              <li>Studying Sovereign AI: how institutional control over AI infrastructure shapes whether agents can be governed.</li>
-              <li>Building an open-weight LLM co-expert for intangible-asset valuation, grounded in domain knowledge via retrieval-augmented generation.</li>
-              <li>Developing methods for report reliability and data anonymization to protect user-disclosed information.</li>
+              <li>Studying sovereign AI: how institutional control over AI infrastructure shapes whether agents can be governed.</li>
+              <li>Building an open-weight LLM co-expert for intangible-asset valuation, grounded in domain knowledge through retrieval-augmented generation.</li>
+              <li>Developing methods for report reliability and data anonymization to protect information users disclose.</li>
             </ul>
           </div>
         </li>
@@ -612,14 +670,14 @@
             <ul class="bullets">
               <li>Led culturally aligned image-generation benchmarking for <a href="https://www.fanar.qa/en" target="_blank" rel="noopener">Fanar</a>, an Arabic-centric multimodal generative AI platform.</li>
               <li>Built the platform’s image-generation evaluation suite (FID, CLIP Score, Inception Score, PSNR, SSIM).</li>
-              <li>Designed 15 custom LLM-as-a-judge metrics spanning cultural accuracy and generation quality, informing model selection.</li>
+              <li>Designed 15 custom LLM-as-a-judge metrics for cultural accuracy and generation quality, used to inform model selection.</li>
               <li>Assessed agreement between automated judge scores and Elo rankings derived from human pairwise comparisons.</li>
               <li>Resulting manuscript: <em>Fanar Oryx: Culturally Aligned Image Generation for Arabic-Islamic Visual Culture</em> <a class="ref" href="#pub-6">[6]</a>.</li>
             </ul>
           </div>
         </li>
 
-        <li class="entry">
+        <li class="entry" id="exp-cv-lab">
           <p class="entry-date">Apr 2024 – Present</p>
           <div class="entry-body">
             <h3 class="entry-title">Researcher</h3>
@@ -653,7 +711,7 @@
             <p class="entry-org"><a href="https://utnoc.ir/new/" target="_blank" rel="noopener">Intelligent Architectures for Computing Systems Lab</a>, University of Tehran</p>
             <p class="entry-meta">Supervised by <a href="https://ece.ut.ac.ir/en/~modarressi" target="_blank" rel="noopener">Dr. Mehdi Modarressi</a></p>
             <ul class="bullets">
-              <li>Coordinating the laboratory’s reading group on LLM hardware and computational efficiency.</li>
+              <li>Coordinating the lab’s reading group on LLM hardware and computational efficiency.</li>
               <li>Developing efficient LSTM models for EEG analysis on wearable devices, focusing on model complexity and predictive accuracy <a class="ref" href="#pub-5">[5]</a>.</li>
               <li>Co-authored <em>Smart Memory</em>, published in <em>IEEE Computer Architecture Letters</em> <a class="ref" href="#pub-2">[2]</a>.</li>
             </ul>
@@ -712,7 +770,7 @@
             <h3 class="entry-title">B.Sc. in Computer Engineering <span class="entry-qualifier">(Software Engineering)</span></h3>
             <p class="entry-org"><a href="https://kashanu.ac.ir/en" target="_blank" rel="noopener">University of Kashan</a> · Kashan, Iran</p>
             <dl class="facts">
-              <div><dt>GPA</dt><dd>17.68 / 20 cumulative · 18.25 / 20 in the last two years · ranked 2nd by GPA</dd></div>
+              <div><dt>GPA</dt><dd>17.68 / 20 overall · 18.25 / 20 in the last two years · ranked 2nd by GPA</dd></div>
               <div><dt>Thesis</dt><dd><cite>A Hybrid Deep Learning–SVM Classification Framework</cite></dd></div>
             </dl>
           </div>
@@ -739,11 +797,11 @@
         </li>
         <li>
           <span class="dated-year">2019</span>
-          <p>Awarded direct (entrance-exam-exempt) M.Sc. admission to the University of Tehran as an Exceptional Talent.</p>
+          <p>Direct (entrance-exam-exempt) M.Sc. admission to the University of Tehran as an Exceptional Talent.</p>
         </li>
         <li>
           <span class="dated-year">2019</span>
-          <p>Awarded direct M.Sc. admission offers from the <a href="https://kashanu.ac.ir/en" target="_blank" rel="noopener">University of Kashan</a> and <a href="https://en.sbu.ac.ir/" target="_blank" rel="noopener">Shahid Beheshti University</a> as an Exceptional Talent.</p>
+          <p>Direct M.Sc. admission offers from the <a href="https://kashanu.ac.ir/en" target="_blank" rel="noopener">University of Kashan</a> and <a href="https://en.sbu.ac.ir/" target="_blank" rel="noopener">Shahid Beheshti University</a> as an Exceptional Talent.</p>
         </li>
         <li>
           <span class="dated-year">2019</span>
@@ -761,7 +819,7 @@
       <div class="section-head">
         <h2 class="section-title" id="teaching-title">Teaching &amp; Service</h2>
       </div>
-      <p class="section-lede">Teaching assistant for eight university courses at the University of Tehran and the University of Kashan, five of them as head TA.</p>
+      <p class="section-lede">Teaching assistant for eight university courses, five of them as head TA.</p>
 
       <h3 class="subhead"><a href="https://ut.ac.ir/en" target="_blank" rel="noopener">University of Tehran</a></h3>
       <ul class="courses">
@@ -770,7 +828,7 @@
           <div class="course-body">
             <div class="course-head"><span class="course-title">Trustworthy AI</span> <span class="role role-head">Head TA</span></div>
             <p class="course-meta">with <a href="https://ece.ut.ac.ir/en/~tavassolipour" target="_blank" rel="noopener">Dr. Mostafa Tavassolipour</a></p>
-            <p class="course-desc">Teach the course’s AI-ethics section and design and grade its assignments and examinations; edit the lecture videos and have run the <a href="https://www.youtube.com/@Tavassolipour" target="_blank" rel="noopener">course’s YouTube channel</a> since it launched.</p>
+            <p class="course-desc">Teach the AI ethics section; write and grade the assignments and exams; edit the lecture videos and run the <a href="https://www.youtube.com/@Tavassolipour" target="_blank" rel="noopener">course’s YouTube channel</a>, which I have managed since it started.</p>
           </div>
         </li>
         <li class="course">
@@ -778,7 +836,7 @@
           <div class="course-body">
             <div class="course-head"><span class="course-title">Generative Models</span> <span class="role">TA</span></div>
             <p class="course-meta">with Dr. Mohammad Amin Sadeghi and <a href="https://ece.ut.ac.ir/en/~tavassolipour" target="_blank" rel="noopener">Dr. Mostafa Tavassolipour</a></p>
-            <p class="course-desc">Ran lab sessions on GANs, VAEs, and early diffusion models; graded assignments and final projects; edited the lecture videos for the course’s YouTube channel.</p>
+            <p class="course-desc">Ran lab sessions on GANs, VAEs, and early diffusion models; graded assignments and final projects; edited the lecture videos for the course channel.</p>
           </div>
         </li>
         <li class="course">
@@ -786,7 +844,7 @@
           <div class="course-body">
             <div class="course-head"><span class="course-title">Data Analysis</span> <span class="role">TA</span></div>
             <p class="course-meta">with Dr. Mohammad Amin Sadeghi and <a href="https://ece.ut.ac.ir/en/~dehaqani" target="_blank" rel="noopener">Dr. Abolghasemi</a></p>
-            <p class="course-desc">Held weekly office hours, graded coursework on statistical inference and exploratory data analysis, and gave project feedback, starting with the course’s first offering in 2021.</p>
+            <p class="course-desc">Held weekly office hours, graded coursework on statistical inference and exploratory data analysis, and gave feedback on student projects, starting with the course’s first offering in 2021.</p>
           </div>
         </li>
         <li class="course">
@@ -794,7 +852,7 @@
           <div class="course-body">
             <div class="course-head"><span class="course-title">Neural Networks &amp; Deep Learning</span> <span class="role">TA</span></div>
             <p class="course-meta">with <a href="https://profile.ut.ac.ir/en/~akalhor" target="_blank" rel="noopener">Dr. Ahmad Kalhor</a></p>
-            <p class="course-desc">Graded homework and exams on backpropagation, CNNs, and RNNs for the department’s core deep-learning course.</p>
+            <p class="course-desc">Graded homework and exams on backpropagation, CNNs, and RNNs for the department’s core deep learning course.</p>
           </div>
         </li>
       </ul>
@@ -806,7 +864,7 @@
           <div class="course-body">
             <div class="course-head"><span class="course-title">Machine Learning</span> <span class="role role-head">Head TA</span></div>
             <p class="course-meta">with <a href="https://faculty.kashanu.ac.ir/salimi/en" target="_blank" rel="noopener">Dr. Javad Salimi Sartakhti</a></p>
-            <p class="course-desc">Designed problem sets and led review sessions on supervised learning, SVMs, and ensemble methods.</p>
+            <p class="course-desc">Wrote problem sets and led review sessions on supervised learning, SVMs, and ensemble methods.</p>
           </div>
         </li>
         <li class="course">
@@ -830,18 +888,18 @@
           <div class="course-body">
             <div class="course-head"><span class="course-title">MATLAB Laboratory</span> <span class="role role-head">Head TA</span></div>
             <p class="course-meta">with <a href="https://scholar.google.com/citations?user=7ahmLpgAAAAJ&amp;hl=en" target="_blank" rel="noopener">Dr. Ebrahimpour</a></p>
-            <p class="course-desc">Built the lab curriculum for numerical computing and signal-processing exercises in MATLAB.</p>
+            <p class="course-desc">Built the lab curriculum for numerical computing and signal-processing exercises.</p>
           </div>
         </li>
       </ul>
 
-      <p class="note">Earlier: taught Java programming at Khayatzade High School (2017), introducing students to programming fundamentals and object-oriented design (<a href="https://github.com/parhamzm/Khayatzade-Java" target="_blank" rel="noopener">course code</a>).</p>
+      <p class="note">Earlier, I taught Java programming at Khayatzade High School (2017), covering programming fundamentals and object-oriented design (<a href="https://github.com/parhamzm/Khayatzade-Java" target="_blank" rel="noopener">course code</a>).</p>
 
       <h3 class="subhead">Service &amp; outreach</h3>
       <ul class="dated">
         <li>
           <span class="dated-year">2021 – Present</span>
-          <p>Writer on <a href="https://medium.com/@p.zilouchian" target="_blank" rel="noopener">Medium</a>, covering computer science and deep learning topics.</p>
+          <p>Writer on <a href="https://medium.com/@p.zilouchian" target="_blank" rel="noopener">Medium</a>, covering computer science and deep learning.</p>
         </li>
         <li>
           <span class="dated-year">2020 – Present</span>
@@ -924,7 +982,7 @@
             <h3 class="project-title"><a href="https://github.com/parhamzm/Denoising-Diffusion-Probabilistic-Models" target="_blank" rel="noopener">Denoising Diffusion Probabilistic Models</a></h3>
             <span class="project-year">2024</span>
           </div>
-          <p>Implemented a DDPM from scratch for image denoising and generation, studying the forward/reverse diffusion process and the role of variance scheduling in sample quality.</p>
+          <p>Implemented a DDPM from scratch for image denoising and generation, studying the forward and reverse diffusion processes and how variance scheduling affects sample quality.</p>
           <p class="project-tags">Diffusion · Generative models · PyTorch</p>
         </li>
         <li class="project">
@@ -964,7 +1022,7 @@
             <h3 class="project-title"><a href="https://github.com/parhamzm/Parkinson-Descriptive-Analysis" target="_blank" rel="noopener">Parkinson’s Disease Classifier</a></h3>
             <span class="project-year">2021</span>
           </div>
-          <p>Designed and benchmarked 15 classifiers (KNN, DNN, SVM, ensembles) on a 700+ feature clinical dataset, achieving 98.3% accuracy.</p>
+          <p>Designed and benchmarked 15 classifiers (KNN, DNN, SVM, ensembles) on a clinical dataset with more than 700 features, reaching 98.3% accuracy.</p>
           <p class="project-tags">Healthcare ML · Benchmarking</p>
         </li>
         <li class="project">
@@ -972,7 +1030,7 @@
             <h3 class="project-title">Generative Adversarial Networks (GAN) Suite</h3>
             <span class="project-year">2021</span>
           </div>
-          <p>Constructed and compared DCGAN, C-GAN, SR-GAN, and WGAN architectures, analyzing convergence and output fidelity.</p>
+          <p>Built and compared DCGAN, C-GAN, SR-GAN, and WGAN architectures, analyzing their convergence and output fidelity.</p>
           <p class="project-tags">GANs · Generative models</p>
         </li>
       </ul>
@@ -983,18 +1041,17 @@
       <div class="section-head">
         <h2 class="section-title" id="certificates-title">Schools, Workshops &amp; Certificates</h2>
       </div>
-      <p class="section-lede">Certificates link to their verifiable originals; most recent first.</p>
 
       <h3 class="subhead">Summer schools, workshops &amp; seminars</h3>
       <ul class="certs">
         <li class="cert">
           <span class="cert-year">2024</span>
-          <p class="cert-name">Oxford MLx: Generative AI — Theory, Agents, Products <span class="cert-issuer">· AI for Global Goals</span></p>
+          <p class="cert-name">Oxford MLx: Generative AI (Theory, Agents, Products) <span class="cert-issuer">· AI for Global Goals</span></p>
           <p class="cert-links"><a href="https://drive.google.com/file/d/1xcKSkrQlvwE8chZUdOc2iFSXzCIQm7tR/view?usp=sharing" target="_blank" rel="noopener">Certificate<span class="visually-hidden">: Oxford MLx 2024</span></a> <a href="https://www.oxfordml.school/genai" target="_blank" rel="noopener">Event<span class="visually-hidden">: Oxford MLx 2024</span></a></p>
         </li>
         <li class="cert">
           <span class="cert-year">2023</span>
-          <p class="cert-name">Oxford Machine Learning Summer School — Health; Finance &amp; NLP <span class="cert-issuer">· OxML</span></p>
+          <p class="cert-name">Oxford Machine Learning Summer School, Health and Finance &amp; NLP tracks <span class="cert-issuer">· OxML</span></p>
           <p class="cert-links"><a href="https://drive.google.com/file/d/1O-tOYmNom9fMzFSScXJhwf_TPxhnFAml/view?usp=sharing" target="_blank" rel="noopener">Certificate<span class="visually-hidden">: OxML 2023</span></a></p>
         </li>
         <li class="cert">
@@ -1034,44 +1091,49 @@
         </li>
       </ul>
 
-      <h3 class="subhead">Online courses</h3>
-      <ul class="certs">
-        <li class="cert">
-          <span class="cert-year">2026</span>
-          <p class="cert-name">Creative Thinking Tools for Success and Leadership <span class="cert-issuer">· Imperial College London</span></p>
-          <p class="cert-links"><a href="https://coursera.org/share/3254a651717fff223bec2ed44a2d80bb" target="_blank" rel="noopener">Certificate<span class="visually-hidden">: Creative Thinking Tools</span></a></p>
-        </li>
-        <li class="cert">
-          <span class="cert-year">2026</span>
-          <p class="cert-name">Google Prompting Essentials Specialization <span class="cert-issuer">· Google</span></p>
-          <p class="cert-links"><a href="https://coursera.org/verify/specialization/G6XU0613EA26" target="_blank" rel="noopener">Certificate<span class="visually-hidden">: Google Prompting Essentials</span></a></p>
-        </li>
-        <li class="cert">
-          <span class="cert-year">2025</span>
-          <p class="cert-name">Machine Learning in Production <span class="cert-issuer">· DeepLearning.AI</span></p>
-          <p class="cert-links"><a href="https://coursera.org/verify/OIVOU4B028TY" target="_blank" rel="noopener">Certificate<span class="visually-hidden">: Machine Learning in Production</span></a></p>
-        </li>
-        <li class="cert">
-          <span class="cert-year">2024</span>
-          <p class="cert-name">Machine Learning Specialization <span class="cert-issuer">· Stanford University</span></p>
-          <p class="cert-links"><a href="https://coursera.org/share/bbb526402ca24dbda39f03b4f081c475" target="_blank" rel="noopener">Certificate<span class="visually-hidden">: Machine Learning Specialization</span></a></p>
-        </li>
-        <li class="cert">
-          <span class="cert-year">2023</span>
-          <p class="cert-name">Deep Learning Specialization <span class="cert-issuer">· DeepLearning.AI</span></p>
-          <p class="cert-links"><a href="https://coursera.org/share/f052f5c1e6643c76abe60939ca7cd299" target="_blank" rel="noopener">Certificate<span class="visually-hidden">: Deep Learning Specialization</span></a></p>
-        </li>
-        <li class="cert">
-          <span class="cert-year">2022</span>
-          <p class="cert-name">Generative Adversarial Networks (GANs) Specialization <span class="cert-issuer">· DeepLearning.AI</span></p>
-          <p class="cert-links"><a href="https://coursera.org/share/62dd33db18a9cc80ab89ebd8fc5dfff1" target="_blank" rel="noopener">Certificate<span class="visually-hidden">: GANs Specialization</span></a></p>
-        </li>
-        <li class="cert">
-          <span class="cert-year">2021</span>
-          <p class="cert-name">Deep Neural Networks with PyTorch <span class="cert-issuer">· IBM</span></p>
-          <p class="cert-links"><a href="https://coursera.org/share/d091201ff1f1b624da8b3b5c23c74f5b" target="_blank" rel="noopener">Certificate<span class="visually-hidden">: Deep Neural Networks with PyTorch</span></a></p>
-        </li>
-      </ul>
+      <details class="more">
+        <summary>
+          <span>Online courses</span><span class="more-count">7</span>
+          <svg class="i more-chevron" aria-hidden="true"><use href="#i-chevron"/></svg>
+        </summary>
+        <ul class="certs">
+          <li class="cert">
+            <span class="cert-year">2026</span>
+            <p class="cert-name">Creative Thinking Tools for Success and Leadership <span class="cert-issuer">· Imperial College London</span></p>
+            <p class="cert-links"><a href="https://coursera.org/share/3254a651717fff223bec2ed44a2d80bb" target="_blank" rel="noopener">Certificate<span class="visually-hidden">: Creative Thinking Tools</span></a></p>
+          </li>
+          <li class="cert">
+            <span class="cert-year">2026</span>
+            <p class="cert-name">Google Prompting Essentials Specialization <span class="cert-issuer">· Google</span></p>
+            <p class="cert-links"><a href="https://coursera.org/verify/specialization/G6XU0613EA26" target="_blank" rel="noopener">Certificate<span class="visually-hidden">: Google Prompting Essentials</span></a></p>
+          </li>
+          <li class="cert">
+            <span class="cert-year">2025</span>
+            <p class="cert-name">Machine Learning in Production <span class="cert-issuer">· DeepLearning.AI</span></p>
+            <p class="cert-links"><a href="https://coursera.org/verify/OIVOU4B028TY" target="_blank" rel="noopener">Certificate<span class="visually-hidden">: Machine Learning in Production</span></a></p>
+          </li>
+          <li class="cert">
+            <span class="cert-year">2024</span>
+            <p class="cert-name">Machine Learning Specialization <span class="cert-issuer">· Stanford University</span></p>
+            <p class="cert-links"><a href="https://coursera.org/share/bbb526402ca24dbda39f03b4f081c475" target="_blank" rel="noopener">Certificate<span class="visually-hidden">: Machine Learning Specialization</span></a></p>
+          </li>
+          <li class="cert">
+            <span class="cert-year">2023</span>
+            <p class="cert-name">Deep Learning Specialization <span class="cert-issuer">· DeepLearning.AI</span></p>
+            <p class="cert-links"><a href="https://coursera.org/share/f052f5c1e6643c76abe60939ca7cd299" target="_blank" rel="noopener">Certificate<span class="visually-hidden">: Deep Learning Specialization</span></a></p>
+          </li>
+          <li class="cert">
+            <span class="cert-year">2022</span>
+            <p class="cert-name">Generative Adversarial Networks (GANs) Specialization <span class="cert-issuer">· DeepLearning.AI</span></p>
+            <p class="cert-links"><a href="https://coursera.org/share/62dd33db18a9cc80ab89ebd8fc5dfff1" target="_blank" rel="noopener">Certificate<span class="visually-hidden">: GANs Specialization</span></a></p>
+          </li>
+          <li class="cert">
+            <span class="cert-year">2021</span>
+            <p class="cert-name">Deep Neural Networks with PyTorch <span class="cert-issuer">· IBM</span></p>
+            <p class="cert-links"><a href="https://coursera.org/share/d091201ff1f1b624da8b3b5c23c74f5b" target="_blank" rel="noopener">Certificate<span class="visually-hidden">: Deep Neural Networks with PyTorch</span></a></p>
+          </li>
+        </ul>
+      </details>
     </section>
 
     <!-- ══════════════════════════════ CONTACT ══════════════════════════════ -->
@@ -1081,22 +1143,20 @@
       </div>
 
       <div class="contact">
-        <div class="contact-intro">
-          <p>Email is the best way to reach me. I am always glad to hear about Ph.D. openings, research collaborations, or a paper you think I should read.</p>
-          <div class="contact-actions">
-            <a class="btn btn-primary" href="mailto:p.zilouchian@gmail.com"><svg class="i" aria-hidden="true"><use href="#i-mail"/></svg>Send an email</a>
-            <a class="btn btn-secondary" href="assets/Parham_Zilouchian_Moghaddam_CV_Oct2026.pdf" target="_blank" rel="noopener" type="application/pdf"><svg class="i" aria-hidden="true"><use href="#i-download"/></svg>Download CV (PDF)</a>
-          </div>
+        <p class="contact-intro">Email is the best way to reach me. I am glad to hear about Ph.D. openings, possible collaborations, or a paper you think I should read.</p>
+        <div class="contact-email">
+          <a class="email-link" href="mailto:p.zilouchian@gmail.com">p.zilouchian@gmail.com</a>
+          <button class="copy-email js-copy-email" type="button" data-email="p.zilouchian@gmail.com"><svg class="i" aria-hidden="true"><use href="#i-copy"/></svg>Copy</button>
         </div>
 
         <dl class="contact-list">
           <div>
-            <dt>Email</dt>
-            <dd><a href="mailto:p.zilouchian@gmail.com">p.zilouchian@gmail.com</a></dd>
-          </div>
-          <div>
             <dt>Address</dt>
             <dd><address>School of Electrical and Computer Engineering, University College of Engineering<br>University of Tehran, Tehran, Iran</address></dd>
+          </div>
+          <div>
+            <dt>CV</dt>
+            <dd><a href="assets/Parham_Zilouchian_Moghaddam_CV_Oct2026.pdf" target="_blank" rel="noopener" type="application/pdf">Curriculum vitae (PDF, October 2026)</a></dd>
           </div>
           <div>
             <dt>Profiles</dt>
@@ -1131,13 +1191,13 @@
           <p class="ref-title">Assistant Professor, University of Tehran</p>
         </li>
       </ul>
-      <p class="note">Referee contact details are listed in my <a href="assets/Parham_Zilouchian_Moghaddam_CV_Oct2026.pdf" target="_blank" rel="noopener">CV</a>.</p>
+      <p class="note">Contact details for references are in my <a href="assets/Parham_Zilouchian_Moghaddam_CV_Oct2026.pdf" target="_blank" rel="noopener">CV</a>.</p>
     </section>
 
   </main>
 
   <footer class="footer">
-    <p>© <span id="year">2026</span> Parham Zilouchian Moghaddam · Last updated October 2026</p>
+    <p>© <span id="year">2026</span> Parham Zilouchian Moghaddam · Updated October 2026</p>
     <a class="to-top" href="#top">Back to top<svg class="i" aria-hidden="true"><use href="#i-arrow-up"/></svg></a>
   </footer>
   </div>
@@ -1146,6 +1206,6 @@
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<script src="assets/script.js?v=2026-10-11" defer></script>
+<script src="assets/script.js?v=2026-10-11b" defer></script>
 </body>
 </html>
