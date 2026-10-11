@@ -73,7 +73,7 @@ Everything is in `index.html`, in clearly labelled sections, in this order:
 | Industry experience + skills | `id="experience"` |
 | Projects | `id="projects"` |
 | Schools, workshops & certificates | `id="certificates"` |
-| Contact + references | `id="contact"` |
+| Contact | `id="contact"` |
 
 **Add a news item:** copy an `<li>` inside `<ol class="news">` and put it at the top.
 Keep the `datetime` attribute in ISO form (`2026-10`); search engines read it.
@@ -178,6 +178,10 @@ Then open <http://localhost:8000>.
   never a flash; scrollbars and form controls follow the theme shown (`color-scheme`); the page
   cross-fades on change (skipped for reduced-motion users); open tabs stay in sync; and visitors
   without JavaScript still get the theme that matches their system.
+- **Closing.** The contact section is one composed card (large serif email with a copy button,
+  address, CV, profiles; references are pointed to the CV rather than listed on the page), with
+  the star lattice returning in its corner, and the page ends on a small gold star between two
+  hairlines.
 - **Print.** `Cmd/Ctrl + P` produces a clean black-on-white document.
 
 ## Mobile

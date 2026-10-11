@@ -253,14 +253,18 @@ main:focus { outline: none; }
 }
 
 .skip-link {
-  position: fixed; top: 0; left: 12px; z-index: 300;
+  position: fixed; top: 10px; left: 10px; z-index: 300;
   padding: 10px 16px;
-  border-radius: 0 0 var(--r-sm) var(--r-sm);
+  border-radius: var(--r-sm);
   background: var(--accent); color: var(--on-accent);
   font-weight: 600; text-decoration: none;
-  transform: translateY(-120%);
+  box-shadow: var(--shadow);
 }
-.skip-link:focus { transform: none; color: var(--on-accent); }
+.skip-link:not(:focus) {
+  width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip-path: inset(50%); white-space: nowrap;
+}
+.skip-link:focus { color: var(--on-accent); }
 
 /* ───────────────────────── 4. LAYOUT ───────────────────────── */
 .layout {
@@ -396,8 +400,6 @@ main:focus { outline: none; }
 
 .profile-role { margin-top: 10px; font-size: var(--fs-md); font-weight: 600; color: var(--ink); line-height: 1.4; }
 .affiliation { margin-top: 3px; font-size: var(--fs-sm); line-height: 1.5; color: var(--muted); }
-.affiliation a { color: inherit; text-decoration-color: color-mix(in srgb, currentColor 40%, transparent); }
-.affiliation a:hover { color: var(--accent); }
 
 .status {
   display: flex; align-items: flex-start; gap: 9px;
@@ -639,8 +641,8 @@ html:not(.js) .js-theme-toggle, html:not(.js) .side-theme, html:not(.js) .menu-t
 .interests { list-style: none; margin: 24px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
 .interests li {
   padding: 5px 12px;
-  border: 1px solid var(--accent-edge); border-radius: 999px;
-  background: var(--accent-wash); color: var(--accent);
+  border: 1px solid var(--line); border-radius: 999px;
+  background: var(--surface); color: var(--text);
   font-size: var(--fs-xs); font-weight: 500; line-height: 1.4;
 }
 
@@ -909,7 +911,22 @@ html:not(.js) .js-bib, html:not(.js) .copy-btn, html:not(.js) .js-copy-email { d
 .more[open] summary { margin-bottom: 10px; }
 
 /* ───────────────────────── 16. CONTACT ───────────────────────── */
-.contact-intro { max-width: 60ch; }
+/* one composed closing card; the star lattice returns in its corner,
+   bookending the page with the statement at the top */
+.contact-card {
+  position: relative; isolation: isolate; overflow: hidden;
+  padding: clamp(24px, 4vw, 40px);
+  border: 1px solid var(--line); border-radius: var(--r-lg);
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+}
+.motif-corner {
+  top: -60px; right: -60px;
+  width: 300px; height: 250px;
+  -webkit-mask-image: radial-gradient(closest-side at 74% 30%, #000 0%, rgba(0, 0, 0, .45) 50%, transparent 100%);
+          mask-image: radial-gradient(closest-side at 74% 30%, #000 0%, rgba(0, 0, 0, .45) 50%, transparent 100%);
+}
+.contact-intro { max-width: 56ch; }
 .contact-email { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; margin-top: 14px; }
 .email-link {
   font-family: var(--font-serif);
@@ -934,7 +951,7 @@ html:not(.js) .js-bib, html:not(.js) .copy-btn, html:not(.js) .js-copy-email { d
 .copy-email:hover { border-color: var(--accent-edge); color: var(--accent); }
 .copy-email .i { width: 14px; height: 14px; }
 
-.contact-list { margin: 26px 0 0; display: grid; gap: 12px; }
+.contact-list { margin: 28px 0 0; padding-top: 22px; border-top: 1px solid var(--line-soft); display: grid; gap: 12px; }
 .contact-list div { display: grid; grid-template-columns: var(--date-col) minmax(0, 1fr); column-gap: 24px; }
 .contact-list dt {
   padding-top: .3em;
@@ -945,23 +962,17 @@ html:not(.js) .js-bib, html:not(.js) .copy-btn, html:not(.js) .js-copy-email { d
 .contact-list address { font-style: normal; }
 .inline-links { display: flex; flex-wrap: wrap; gap: 2px 14px; }
 
-.refs {
-  list-style: none; margin: 0; padding: 0;
-  display: grid; grid-template-columns: repeat(auto-fill, minmax(min(260px, 100%), 1fr)); gap: 12px;
-}
-.ref-card { padding: 14px 16px; border: 1px solid var(--line); border-radius: var(--r); background: var(--surface); }
-.ref-name { font-family: var(--font-serif); font-size: 1.0625rem; font-weight: 600; line-height: 1.4; color: var(--ink); }
-.ref-name a { color: var(--ink); text-decoration-color: var(--accent-edge); }
-.ref-name a:hover { color: var(--accent); text-decoration-color: currentColor; }
-.ref-title { margin-top: 2px; font-size: var(--fs-xs); line-height: 1.5; color: var(--muted); }
 
 /* ───────────────────────── 17. FOOTER + TOAST ───────────────────────── */
 .footer {
-  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 20px;
-  padding: 22px 0 calc(28px + env(safe-area-inset-bottom));
-  border-top: 1px solid var(--line);
+  padding: 4px 0 calc(28px + env(safe-area-inset-bottom));
   font-size: var(--fs-xs); color: var(--muted);
 }
+/* a closing ornament: the eight-pointed star between two hairlines */
+.fleuron { display: flex; align-items: center; gap: 16px; margin-bottom: 18px; color: var(--gold); }
+.fleuron::before, .fleuron::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+.fleuron .i { width: 16px; height: 16px; stroke-width: 1.4; }
+.footer-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 20px; }
 .to-top { display: inline-flex; align-items: center; gap: 5px; color: var(--muted); text-decoration: none; }
 .to-top:hover { color: var(--accent); }
 
@@ -1007,6 +1018,8 @@ html:not(.js) .js-bib, html:not(.js) .copy-btn, html:not(.js) .js-copy-email { d
 
   .interests { gap: 6px; }
   .interests li { padding: 3px 10px; font-size: var(--fs-2xs); }
+
+  .motif-corner { display: none; }   /* no free corner in a narrow card */
 
   .theme { grid-template-columns: 40px minmax(0, 1fr); gap: 14px; }
   .theme-icon { width: 40px; height: 40px; border-radius: 11px; }
@@ -1055,14 +1068,14 @@ html:not(.js) .js-bib, html:not(.js) .copy-btn, html:not(.js) .js-copy-email { d
   }
   body { font-size: 10.5pt; line-height: 1.5; }
   .topbar, .menu, .side-nav, .side-theme, .skip-link, .profile-actions, .profile-links, .pub-actions,
-  .bib, .toast, .to-top, .copy-email, .motif, .sprite { display: none !important; }
+  .bib, .toast, .to-top, .copy-email, .motif, .fleuron, .sprite { display: none !important; }
   .layout { display: block; max-width: none; padding: 0; }
   .profile { position: static; height: auto; overflow: visible; padding: 0 0 14pt; }
   .profile-card { grid-template-columns: auto 1fr; align-items: center; gap: 14pt; }
   .portrait { width: 72pt; box-shadow: none; padding: 0; }
   .content { padding: 0; }
   .section { margin-bottom: 18pt; }
-  .entry, .pub, .course, .cert, .dated li, .project, .ref-card, .theme { break-inside: avoid; }
-  .project, .ref-card { box-shadow: none; }
+  .entry, .pub, .course, .cert, .dated li, .project, .theme { break-inside: avoid; }
+  .project, .contact-card { box-shadow: none; }
   a { color: inherit; text-decoration: none; }
 }
