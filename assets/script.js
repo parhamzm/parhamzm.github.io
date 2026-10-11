@@ -16,7 +16,7 @@
 
 /* ════════════════════════════════════════════════════════════════════
    Parham Zilouchian Moghaddam — site behaviour
-   Theme · section menu · scroll spy · compact-bar name · BibTeX
+   Theme (auto / light / dark) · section menu · scroll spy · BibTeX · copy
    Everything here is an enhancement: the page is complete without it.
    ════════════════════════════════════════════════════════════════════ */
 (function () {
@@ -27,6 +27,7 @@
 
   function read(key)     { try { return localStorage.getItem(key); } catch (e) { return null; } }
   function write(key, v) { try { localStorage.setItem(key, v); } catch (e) {} }
+  function forget(key)   { try { localStorage.removeItem(key); } catch (e) {} }
   function each(list, fn) { Array.prototype.forEach.call(list, fn); }
   function listen(mq, fn) {
     if (!mq) return;
@@ -35,34 +36,79 @@
   }
 
   /* ── theme ─────────────────────────────────────────────── */
-  var themeButtons = document.querySelectorAll('.js-theme');
+  // Three states. "auto" = nothing saved: data-theme stays unset and the CSS
+  // follows the operating system by itself, live. "light" / "dark" = a saved
+  // choice, applied before first paint by the inline script in <head>. This
+  // part keeps the controls, labels and browser-bar colour in step.
+  var COLORS = { light: '#fcfbf8', dark: '#0f1115' };
   var themeMetas = document.querySelectorAll('meta[name="theme-color"]');
+  var themeToggles = document.querySelectorAll('.js-theme-toggle');
+  var themeInputs = document.querySelectorAll('.theme-picker input');
   var darkQuery = window.matchMedia ? window.matchMedia('(prefers-color-scheme: dark)') : null;
+  var calmQuery = window.matchMedia ? window.matchMedia('(prefers-reduced-motion: reduce)') : null;
 
-  function applyTheme(theme) {
-    root.setAttribute('data-theme', theme);
-    var label = theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme';
-    each(themeButtons, function (btn) {
+  function systemTheme() { return darkQuery && darkQuery.matches ? 'dark' : 'light'; }
+  function savedTheme() { var t = read(THEME_KEY); return t === 'light' || t === 'dark' ? t : 'auto'; }
+  function shownTheme(pref) { return pref === 'auto' ? systemTheme() : pref; }
+
+  function renderTheme(pref) {
+    if (pref === 'auto') root.removeAttribute('data-theme');
+    else root.setAttribute('data-theme', pref);
+    // browser chrome (mobile address bar, Safari tab bar): in Auto each <meta>
+    // keeps the colour for its own media query; a saved choice overrides both
+    each(themeMetas, function (m) {
+      var forDark = /dark/.test(m.getAttribute('media') || '');
+      m.setAttribute('content', pref === 'auto' ? COLORS[forDark ? 'dark' : 'light'] : COLORS[pref]);
+    });
+    each(themeInputs, function (input) { input.checked = input.value === pref; });
+    var label = 'Switch to ' + (shownTheme(pref) === 'dark' ? 'light' : 'dark') + ' theme';
+    each(themeToggles, function (btn) {
       btn.setAttribute('aria-label', label);
       btn.setAttribute('title', label);
     });
-    // keep the browser chrome (mobile address bar, Safari tab bar) in step
-    // with the theme actually shown, not just the operating-system setting
-    var bg = getComputedStyle(root).getPropertyValue('--bg').trim();
-    if (bg) each(themeMetas, function (m) { m.setAttribute('content', bg); });
   }
 
-  applyTheme(read(THEME_KEY) || (darkQuery && darkQuery.matches ? 'dark' : 'light'));
+  function setTheme(pref) {
+    if (pref === 'auto') forget(THEME_KEY);
+    else write(THEME_KEY, pref);
+    // switch everything at once: no per-element colour fades, and a short
+    // cross-fade of the whole page where the browser supports it
+    root.classList.add('theme-switching');
+    var settle = function () {
+      window.requestAnimationFrame(function () { root.classList.remove('theme-switching'); });
+    };
+    var update = function () { renderTheme(pref); };
+    if (document.startViewTransition && !(calmQuery && calmQuery.matches)) {
+      document.startViewTransition(update).finished.then(settle, settle);
+    } else {
+      update();
+      void root.offsetWidth;   // apply the new colours before transitions return
+      settle();
+    }
+  }
 
-  listen(darkQuery, function (e) {
-    if (!read(THEME_KEY)) applyTheme(e.matches ? 'dark' : 'light');
+  renderTheme(savedTheme());
+
+  // Auto already follows the system through CSS; the toggle's label needs news
+  listen(darkQuery, function () { renderTheme(savedTheme()); });
+
+  // keep any other open tabs of the site in step
+  window.addEventListener('storage', function (e) {
+    if (e.key === THEME_KEY) renderTheme(savedTheme());
   });
 
-  each(themeButtons, function (btn) {
+  each(themeInputs, function (input) {
+    input.addEventListener('change', function () {
+      if (input.checked) setTheme(input.value);
+    });
+  });
+
+  // quick toggle: flips the theme shown; flipping back to the system's own
+  // theme returns to Auto, so no one is left stuck on a forced theme
+  each(themeToggles, function (btn) {
     btn.addEventListener('click', function () {
-      var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-      applyTheme(next);
-      write(THEME_KEY, next);
+      var next = shownTheme(savedTheme()) === 'dark' ? 'light' : 'dark';
+      setTheme(next === systemTheme() ? 'auto' : next);
     });
   });
 

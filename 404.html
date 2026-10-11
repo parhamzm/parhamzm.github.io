@@ -6,14 +6,27 @@
 <title>Page not found — Parham Zilouchian Moghaddam</title>
 <meta name="robots" content="noindex">
 <meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#fcfbf8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0f1115" media="(prefers-color-scheme: dark)">
 <!-- GitHub Pages serves this file at whatever URL was requested, so every
      asset path must be absolute or it breaks on nested URLs like /a/b/c -->
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="preload" href="/assets/fonts/newsreader-latin-var.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/style.css?v=2026-10-11b">
+<link rel="stylesheet" href="/assets/style.css?v=2026-10-11c">
 <script>
-(function(){var d=document.documentElement;d.className+=' js';try{var t=localStorage.getItem('pzm-theme')||(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');d.setAttribute('data-theme',t);}catch(e){}})();
+(function () {
+  var d = document.documentElement;
+  d.className += ' js';
+  try {
+    var t = localStorage.getItem('pzm-theme');
+    if (t === 'light' || t === 'dark') {
+      d.setAttribute('data-theme', t);
+      var c = t === 'dark' ? '#0f1115' : '#fcfbf8', m = document.querySelectorAll('meta[name="theme-color"]');
+      for (var i = 0; i < m.length; i++) m[i].setAttribute('content', c);
+    }
+  } catch (e) {}
+})();
 </script>
 <style>
   .nf { min-height: 100vh; min-height: 100dvh; display: grid; place-items: center; padding: 40px 24px; text-align: center; }

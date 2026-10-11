@@ -54,12 +54,25 @@
 <link rel="preload" href="assets/fonts/inter-latin-var.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/newsreader-latin-var.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/newsreader-italic-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="assets/style.css?v=2026-10-11b">
+<link rel="stylesheet" href="assets/style.css?v=2026-10-11c">
 
-<!-- Resolve the theme before first paint so there is never a flash, and flag
-     that JS is available (for progressive enhancements such as BibTeX toggles) -->
+<!-- Theme, before first paint. With no saved choice ("Auto") data-theme stays
+     unset and the CSS follows the visitor's system setting, live. A saved
+     choice is applied here, together with the matching browser-bar colour, so
+     there is never a flash of the wrong theme. Also flags that JS is running. -->
 <script>
-(function(){var d=document.documentElement;d.className+=' js';try{var t=localStorage.getItem('pzm-theme')||(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');d.setAttribute('data-theme',t);}catch(e){}})();
+(function () {
+  var d = document.documentElement;
+  d.className += ' js';
+  try {
+    var t = localStorage.getItem('pzm-theme');
+    if (t === 'light' || t === 'dark') {
+      d.setAttribute('data-theme', t);
+      var c = t === 'dark' ? '#0f1115' : '#fcfbf8', m = document.querySelectorAll('meta[name="theme-color"]');
+      for (var i = 0; i < m.length; i++) m[i].setAttribute('content', c);
+    }
+  } catch (e) {}
+})();
 </script>
 
 <!-- ══════════════════════ STRUCTURED DATA ══════════════════════ -->
@@ -208,6 +221,7 @@
   <symbol id="i-github" viewBox="0 0 24 24"><path d="M9 19.5c-4.3 1.3-4.3-2.2-6-2.6m12 5.1v-3.3a2.9 2.9 0 0 0-.8-2.2c2.7-.3 5.5-1.3 5.5-5.9a4.6 4.6 0 0 0-1.3-3.2 4.3 4.3 0 0 0-.1-3.2s-1-.3-3.4 1.3a11.7 11.7 0 0 0-6 0C6.5 3.9 5.5 4.2 5.5 4.2a4.3 4.3 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 10.6c0 4.6 2.8 5.6 5.5 5.9a2.9 2.9 0 0 0-.8 2.2V22"/></symbol>
   <symbol id="i-linkedin" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M7.5 10.5V17M7.5 7.4v.1M11.6 17v-4a2.4 2.4 0 0 1 4.8 0v4M11.6 10.5V17"/></symbol>
   <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.1"/><path d="M12 2.3v2.3M12 19.4v2.3M2.3 12h2.3M19.4 12h2.3M5 5l1.6 1.6M17.4 17.4 19 19M19 5l-1.6 1.6M6.6 17.4 5 19"/></symbol>
+  <symbol id="i-auto" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 3.5a8.5 8.5 0 0 1 0 17z" style="fill: currentColor; stroke: none"/></symbol>
   <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20.5 14.6A8.6 8.6 0 0 1 9.4 3.5a8.6 8.6 0 1 0 11.1 11.1z"/></symbol>
   <symbol id="i-menu" viewBox="0 0 24 24"><path d="M3.5 7h17M3.5 12h17M3.5 17h17"/></symbol>
   <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
@@ -227,7 +241,7 @@
     <span class="brand-text" aria-hidden="true"><span class="brand-full">Parham Zilouchian Moghaddam</span><span class="brand-short">P. Z. Moghaddam</span></span>
   </a>
   <div class="topbar-actions">
-    <button class="icon-btn js-theme" type="button" aria-label="Switch colour theme">
+    <button class="icon-btn js-theme-toggle" type="button" aria-label="Switch color theme">
       <svg class="i i-to-dark" aria-hidden="true"><use href="#i-moon"/></svg>
       <svg class="i i-to-light" aria-hidden="true"><use href="#i-sun"/></svg>
     </button>
@@ -236,7 +250,8 @@
       <svg class="i i-close" aria-hidden="true"><use href="#i-close"/></svg>
     </button>
   </div>
-  <nav class="menu" id="menu" aria-label="Sections">
+  <div class="menu" id="menu">
+    <nav aria-label="Sections">
     <ul>
       <li><a href="#about">About</a></li>
       <li><a href="#news">News</a></li>
@@ -249,7 +264,16 @@
       <li><a href="#certificates">Training</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
-  </nav>
+    </nav>
+    <div class="menu-theme">
+      <span class="menu-theme-label" id="menu-theme-label">Theme</span>
+      <fieldset class="theme-picker" aria-labelledby="menu-theme-label">
+        <label><input type="radio" name="theme-menu" value="auto" checked><span><svg class="i" aria-hidden="true"><use href="#i-auto"/></svg>Auto<span class="visually-hidden"> (match device setting)</span></span></label>
+        <label><input type="radio" name="theme-menu" value="light"><span><svg class="i" aria-hidden="true"><use href="#i-sun"/></svg>Light</span></label>
+        <label><input type="radio" name="theme-menu" value="dark"><span><svg class="i" aria-hidden="true"><use href="#i-moon"/></svg>Dark</span></label>
+      </fieldset>
+    </div>
+  </div>
 </header>
 
 <div class="layout">
@@ -309,12 +333,14 @@
       </ul>
     </nav>
 
-    <button class="theme-switch js-theme" type="button" aria-label="Switch colour theme">
-      <svg class="i i-to-dark" aria-hidden="true"><use href="#i-moon"/></svg>
-      <svg class="i i-to-light" aria-hidden="true"><use href="#i-sun"/></svg>
-      <span class="i-to-dark" aria-hidden="true">Dark theme</span>
-      <span class="i-to-light" aria-hidden="true">Light theme</span>
-    </button>
+    <div class="side-theme">
+      <fieldset class="theme-picker">
+        <legend class="visually-hidden">Color theme</legend>
+        <label><input type="radio" name="theme-side" value="auto" checked><span><svg class="i" aria-hidden="true"><use href="#i-auto"/></svg>Auto<span class="visually-hidden"> (match device setting)</span></span></label>
+        <label><input type="radio" name="theme-side" value="light"><span><svg class="i" aria-hidden="true"><use href="#i-sun"/></svg>Light</span></label>
+        <label><input type="radio" name="theme-side" value="dark"><span><svg class="i" aria-hidden="true"><use href="#i-moon"/></svg>Dark</span></label>
+      </fieldset>
+    </div>
   </section>
 
   <div class="content">
@@ -1206,6 +1232,6 @@
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<script src="assets/script.js?v=2026-10-11b" defer></script>
+<script src="assets/script.js?v=2026-10-11c" defer></script>
 </body>
 </html>

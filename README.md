@@ -141,24 +141,43 @@ Then open <http://localhost:8000>.
 
 ## Design notes
 
-- **Layout.** On wide screens a sticky profile column (photo, name, affiliation, CV, profiles
-  and a section index) sits beside a single reading column, so a reader always knows who this
-  is and where they are. Below 1024 px it becomes a compact top bar with a section menu.
+- **First screen.** The content column opens with a one-sentence research statement in large
+  serif type, the six research interests from the CV, and an at-a-glance strip (now /
+  previously / education), so a reader knows the essentials within seconds.
+- **Layout.** On wide screens a sticky profile column (matted portrait, name, affiliation, CV,
+  profiles and a section index) sits beside a single reading column. Below 1024 px it becomes a
+  compact bar with a monogram and a section menu.
+- **Research directions.** Three short themes with their own line icons, each linked to the
+  papers and projects behind it.
 - **CV-style rhythm.** Research, education, teaching, honors, skills and training share one
-  left-hand date column, so the page scans like a well-set CV.
-- **Type.** Newsreader (serif) for names, headings, titles and journal names; Inter for
-  everything else. Running text is 16–17 px; nothing that carries content is set below 13 px.
-- **Colour.** Warm paper, near-black ink and a single ink-blue accent. Every text/background pair
-  passes WCAG AA in both themes (body text 12.7:1 light, 11.9:1 dark; links ≥ 8:1).
-- **Accessibility.** Skip link, landmark structure, visible focus rings, `aria-current` on the
-  section index, a menu that cannot be tabbed into while closed, full keyboard support, and no
-  motion beyond small colour transitions (disabled under reduced-motion). axe-core reports no
-  violations.
+  left-hand date column; each paper has a small venue tile (venue over year).
+- **Type.** Newsreader (serif) for the statement, names, headings, titles and journal names;
+  Inter for everything else. Running text is 16–17 px; nothing that carries content is below 13 px.
+- **Colour.** Warm paper, near-black ink, ink blue for everything clickable, and a little brass
+  gold used only for ornament (section tabs, the email underline and the motif). Every
+  text/background pair passes WCAG AA in both themes (body text 12.7:1 light, 11.9:1 dark).
+- **Motif.** A faint eight-pointed-star (khatam) lattice behind the statement, a nod to Persian
+  tilework and carpet borders, and to the research on culturally aligned image generation and
+  carpet design. It is drawn as an SVG pattern and fades out; it disappears in forced-colours mode.
+- **Writing.** Plain, first-person academic prose that never claims more than the CV: no
+  em-dash flourishes, no "not just X but Y" constructions, concrete names, dates and outcomes.
+- **Accessibility.** Proper landmarks, skip link, visible focus rings, `aria-current` on the
+  section index, a menu that cannot be tabbed into while closed, native `<details>` for the
+  online-course list, and no motion beyond small colour transitions (disabled under reduced
+  motion). axe-core reports no violations.
 - **Performance and privacy.** Fonts are self-hosted (about 130 KB, Latin subsets) with
-  metric-matched fallbacks, so there are no third-party requests and text barely shifts while
-  fonts load. The page works fully without JavaScript; JS only adds conveniences.
-- **Themes.** Follows the system setting; the toggle overrides it and is remembered. The theme
-  is applied before first paint, so there is never a flash of the wrong one.
+  metric-matched fallbacks, so there are no third-party requests and no layout shift while fonts
+  load. The page works fully without JavaScript; JS only adds conveniences (theme, menu, BibTeX
+  toggles, copy buttons).
+- **Themes.** Three states: **Auto** (the default: nothing is saved, and the page follows the
+  visitor's system setting through CSS, switching live if the system changes), or a saved
+  **Light** / **Dark** choice. The sidebar and the mobile menu offer an Auto / Light / Dark
+  selector built from real radio buttons (arrow keys work); the mobile bar also has a quick
+  toggle, and toggling back to the system's own theme returns to Auto, so no one gets stuck.
+  A saved choice is applied before first paint together with the browser-bar colour, so there is
+  never a flash; scrollbars and form controls follow the theme shown (`color-scheme`); the page
+  cross-fades on change (skipped for reduced-motion users); open tabs stay in sync; and visitors
+  without JavaScript still get the theme that matches their system.
 - **Print.** `Cmd/Ctrl + P` produces a clean black-on-white document.
 
 ## Mobile
